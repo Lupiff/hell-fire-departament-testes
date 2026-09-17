@@ -6,6 +6,7 @@ class_name WeaponData
 @export var damage: int
 @export var fire_rate: float  # tiros por segundo
 @export var ammo_max: int
+@export_range(0.0, 10.0, 0.1) var reload_time: float = 1.5
 @export var fire_sound: AudioStream
 @export var reload_sound: AudioStream
 @export var is_hitscan: bool = true

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://vw6ve8x4lrm5"]
 
-[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://weapon_data.gd" id="1_6n70g"]
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_6n70g"]
 [ext_resource type="Texture2D" uid="uid://dvbnl8qo1dssa" path="res://arma teste.png" id="2_iyvo6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ef8i"]

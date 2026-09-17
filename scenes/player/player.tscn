@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c826leni6uo0r"]
 
-[ext_resource type="Script" uid="uid://h7y4ctcplub3" path="res://character_body_3d.gd" id="1_i3pqv"]
-[ext_resource type="Script" uid="uid://b804s6v718jb1" path="res://camera_3d.gd" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://h7y4ctcplub3" path="res://scripts/player/character_body_3d.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://b804s6v718jb1" path="res://scripts/player/camera_3d.gd" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://djbqbqdyk2pp1" path="res://GLB format/maozinha.png" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://weapon_data.gd" id="3_2hs0m"]
-[ext_resource type="Script" uid="uid://dp77vwrotxalk" path="res://weapon_sprite_3d.gd" id="3_i3pqv"]
-[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://waepons/mp40.tres" id="4_1jxqw"]
-[ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://waepons/teste.tres" id="5_1jxqw"]
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="3_2hs0m"]
+[ext_resource type="Script" uid="uid://dp77vwrotxalk" path="res://scripts/weapons/weapon_sprite_3d.gd" id="3_i3pqv"]
+[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="4_1jxqw"]
+[ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="5_1jxqw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hs0m"]
 
