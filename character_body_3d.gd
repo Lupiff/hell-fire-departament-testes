@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var HEALTH := 100
+
 const SPEED = 10.5
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.003

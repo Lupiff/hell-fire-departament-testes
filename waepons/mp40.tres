@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bi6vunvsph4a7"]
+
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://weapon_data.gd" id="1_etenb"]
+[ext_resource type="Texture2D" uid="uid://djbqbqdyk2pp1" path="res://GLB format/maozinha.png" id="2_dynsv"]
+[ext_resource type="Texture2D" uid="uid://bwuvedl8notwv" path="res://GLB format/maozinha_tiro.png" id="3_4ubgt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ubgt"]
+atlas = ExtResource("2_dynsv")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1sxk"]
+atlas = ExtResource("3_4ubgt")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1sxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ubgt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1sxk")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_etenb")
+name = "MP-40"
+sprite_frames = SubResource("SpriteFrames_r1sxk")
+damage = 10
+fire_rate = 10.0
+ammo_max = 30
+is_automatic = true
+metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://vw6ve8x4lrm5"]
+
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://weapon_data.gd" id="1_6n70g"]
+[ext_resource type="Texture2D" uid="uid://dvbnl8qo1dssa" path="res://arma teste.png" id="2_iyvo6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ef8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iyvo6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_6n70g")
+name = "teste"
+sprite_frames = SubResource("SpriteFrames_8ef8i")
+damage = 214
+fire_rate = 44.0
+ammo_max = 33
+metadata/_custom_type_script = "uid://cvp8udpjj1jn2"
