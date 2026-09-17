@@ -20,7 +20,7 @@ size = Vector3(1, 0.31878662, 1)
 [node name="main" type="Node3D" unique_id=937781469]
 
 [node name="Node3D" parent="." unique_id=1742417196 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(0.126, 0, 0, 0, 0.126, 0, 0, 0, 0.126, 0, 0.8220054, 9.212204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8220054, 9.212204)
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=1195255110]
 
@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4904757, -0.073198795, 5.70
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.448147, -0.073198795, 1.9574654)
 
 [node name="building-m2" parent="." unique_id=1305330206 instance=ExtResource("9_efxa6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9575834, -0.07319927, 0.72763133)
+transform = Transform3D(11.482426, 0, 0, 0, 11.482426, 0, 0, 0, 11.482426, -7.3940687, -0.07319927, -7.890177)
 
 [node name="shipping-container-c2" parent="." unique_id=1924512287 instance=ExtResource("10_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6036181, -0.07319951, -0.010691702)
