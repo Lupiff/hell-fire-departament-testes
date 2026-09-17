@@ -50,3 +50,41 @@ no_depth_test = true
 sprite_frames = SubResource("SpriteFrames_sweqy")
 animation = &"idle"
 script = ExtResource("3_i3pqv")
+
+[node name="FireAudio" type="AudioStreamPlayer" parent="CharacterBody3D/Head/Camera3D"]
+volume_db = -4.0
+
+[node name="AmmoHud" type="CanvasLayer" parent="CharacterBody3D/Head/Camera3D"]
+layer = 10
+
+[node name="AmmoLabel" type="Label" parent="CharacterBody3D/Head/Camera3D/AmmoHud"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 72.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 32
+text = "30 / 30"
+horizontal_alignment = 2
+
+[node name="Crosshair" type="ColorRect" parent="CharacterBody3D/Head/Camera3D/AmmoHud"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)

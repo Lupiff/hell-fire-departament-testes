@@ -13,6 +13,8 @@ var reload_cooldown := 0.0
 var is_reloading := false
 
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
+@onready var ammo_label: Label = $AmmoHud/AmmoLabel
+@onready var fire_audio: AudioStreamPlayer = $FireAudio
 
 func _ready() -> void:
 	base_weapon_scale = sprite.scale
@@ -51,6 +53,7 @@ func equip_weapon(index: int) -> void:
 	sprite.sprite_frames = data.sprite_frames
 	current_ammo = data.ammo_max
 	is_reloading = false
+	_update_ammo_hud()
 	_play_animation(&"idle")
 
 func switch_weapon(direction: int) -> void:
@@ -64,6 +67,8 @@ func fire() -> void:
 
 	var data := weapons[current_index]
 	current_ammo -= 1
+	_update_ammo_hud()
+	_play_fire_sound(data)
 	if sprite.animation != &"shoot" or not sprite.is_playing():
 		_play_animation(&"shoot")
 	sprite.trigger_recoil()
@@ -83,7 +88,19 @@ func reload() -> void:
 func _finish_reload() -> void:
 	current_ammo = weapons[current_index].ammo_max
 	is_reloading = false
+	_update_ammo_hud()
 	_play_animation(&"idle")
+
+func _update_ammo_hud() -> void:
+	if weapons.is_empty():
+		ammo_label.text = ""
+		return
+	ammo_label.text = "%d / %d" % [current_ammo, weapons[current_index].ammo_max]
+
+func _play_fire_sound(data: WeaponData) -> void:
+	if data.fire_sound:
+		fire_audio.stream = data.fire_sound
+		fire_audio.play()
 
 func _play_animation(animation_name: StringName) -> void:
 	if sprite.sprite_frames and sprite.sprite_frames.has_animation(animation_name):
