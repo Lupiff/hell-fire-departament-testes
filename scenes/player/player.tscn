@@ -54,6 +54,16 @@ script = ExtResource("3_i3pqv")
 [node name="FireAudio" type="AudioStreamPlayer" parent="CharacterBody3D/Head/Camera3D"]
 volume_db = -4.0
 
+[node name="Muzzle" type="Marker3D" parent="CharacterBody3D/Head/Camera3D"]
+position = Vector3(0.19, -0.13, -0.35)
+
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="CharacterBody3D/Head/Camera3D/Muzzle"]
+light_color = Color(1, 0.58, 0.15, 1)
+light_energy = 0.0
+omni_range = 5.0
+omni_attenuation = 2.0
+shadow_enabled = false
+
 [node name="AmmoHud" type="CanvasLayer" parent="CharacterBody3D/Head/Camera3D"]
 layer = 10
 

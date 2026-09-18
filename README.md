@@ -17,4 +17,8 @@ Protótipo de FPS em Godot 4.7.
 
 O som de disparo da MP40 fica em `assets/audio/mp40_fire.mp3` e é configurado no recurso da arma.
 
+O dano usa hitscan a partir da retícula. O tracer é visual: começa no marcador `Muzzle` da câmera e termina no ponto retornado pelo hitscan.
+
+O alvo de teste fica em `scenes/enemies`, usa uma imagem billboard em `assets/enemies` e recebe dano pelo método `take_damage`. O flash da boca da arma também aciona uma luz amarela breve.
+
 Abra `project.godot` no Godot 4.7 e execute a cena principal.

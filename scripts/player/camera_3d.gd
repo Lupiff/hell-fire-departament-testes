@@ -2,6 +2,7 @@ extends Camera3D
 
 const BASE_FOV := 75.0
 const HITSCAN_RANGE := 1000.0
+const TRACER_SCRIPT := preload("res://scripts/weapons/tracer.gd")
 
 @export var weapons: Array[WeaponData] = []
 
@@ -15,6 +16,10 @@ var is_reloading := false
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
 @onready var ammo_label: Label = $AmmoHud/AmmoLabel
 @onready var fire_audio: AudioStreamPlayer = $FireAudio
+@onready var muzzle: Marker3D = $Muzzle
+@onready var muzzle_flash_light: OmniLight3D = $Muzzle/MuzzleFlashLight
+
+var muzzle_flash_tween: Tween
 
 func _ready() -> void:
 	base_weapon_scale = sprite.scale
@@ -69,11 +74,13 @@ func fire() -> void:
 	current_ammo -= 1
 	_update_ammo_hud()
 	_play_fire_sound(data)
+	_play_muzzle_flash()
 	if sprite.animation != &"shoot" or not sprite.is_playing():
 		_play_animation(&"shoot")
 	sprite.trigger_recoil()
 	if data.is_hitscan:
-		_do_hitscan(data)
+		var hit_position := _do_hitscan(data)
+		_spawn_tracer(muzzle.global_position, hit_position)
 
 func reload() -> void:
 	if weapons.is_empty() or is_reloading:
@@ -102,18 +109,33 @@ func _play_fire_sound(data: WeaponData) -> void:
 		fire_audio.stream = data.fire_sound
 		fire_audio.play()
 
+func _play_muzzle_flash() -> void:
+	if muzzle_flash_tween:
+		muzzle_flash_tween.kill()
+	muzzle_flash_light.light_energy = 4.0
+	muzzle_flash_tween = create_tween()
+	muzzle_flash_tween.tween_property(muzzle_flash_light, "light_energy", 0.0, 0.045)
+
 func _play_animation(animation_name: StringName) -> void:
 	if sprite.sprite_frames and sprite.sprite_frames.has_animation(animation_name):
 		sprite.play(animation_name)
 
-func _do_hitscan(data: WeaponData) -> void:
+func _do_hitscan(data: WeaponData) -> Vector3:
 	var from := global_position
 	var to := from + -global_transform.basis.z * HITSCAN_RANGE
 	var query := PhysicsRayQueryParameters3D.create(from, to)
-	query.exclude = [get_parent()]
+	query.exclude = [get_parent().get_parent()]
 	var result := get_world_3d().direct_space_state.intersect_ray(query)
-	if result and result.collider.has_method("take_damage"):
-		result.collider.take_damage(data.damage)
+	if result:
+		if result.collider.has_method("take_damage"):
+			result.collider.take_damage(data.damage)
+		return result.position
+	return to
+
+func _spawn_tracer(from: Vector3, to: Vector3) -> void:
+	var tracer := TRACER_SCRIPT.new()
+	get_tree().current_scene.add_child(tracer)
+	tracer.show_between(from, to)
 
 func _on_animation_finished() -> void:
 	if sprite.animation == &"shoot":
