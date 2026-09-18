@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_etenb"]
 [ext_resource type="Texture2D" uid="uid://djbqbqdyk2pp1" path="res://GLB format/maozinha.png" id="2_dynsv"]
 [ext_resource type="Texture2D" uid="uid://bwuvedl8notwv" path="res://GLB format/maozinha_tiro.png" id="3_4ubgt"]
-[ext_resource type="AudioStream" path="res://assets/audio/mp40_fire.mp3" id="4_fire"]
+[ext_resource type="AudioStream" uid="uid://bvwqvhks2lyus" path="res://assets/audio/mp40_fire.mp3" id="4_fire"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ubgt"]
 atlas = ExtResource("2_dynsv")
@@ -19,7 +19,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ubgt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -27,7 +27,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r1sxk")
 }],
-"loop": false,
+"loop": 0,
 "name": &"shoot",
 "speed": 5.0
 }]

@@ -178,92 +178,92 @@ light_color = Color(0.7757458, 0.68694985, 0.08497996, 1)
 [node name="Sketchfab_Scene" parent="." unique_id=706713161 instance=ExtResource("1_xtqxc")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.9106215, 0, 3.1942835)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube/Cube_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 1260102648) index="0" unique_id=1671872035]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube/Cube_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 1177243323) index="0" unique_id=1671872035]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube/Cube_Yellow House_0/StaticBody3D" unique_id=97034392]
 shape = SubResource("ConcavePolygonShape3D_xtqxc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_002/Cube_002_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 963513985) index="0" unique_id=1412186659]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_002/Cube_002_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 1451221916) index="0" unique_id=1412186659]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_002/Cube_002_Yellow House_0/StaticBody3D" unique_id=1919358558]
 shape = SubResource("ConcavePolygonShape3D_sbfqc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_003/Cube_003_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 57115249) index="0" unique_id=1941328880]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_003/Cube_003_Yellow House_0" parent_id_path=PackedInt32Array(706713161, 1358849791) index="0" unique_id=1941328880]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_003/Cube_003_Yellow House_0/StaticBody3D" unique_id=301119312]
 shape = SubResource("ConcavePolygonShape3D_wlph2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_035/Cube_035_Light Wood_0" parent_id_path=PackedInt32Array(706713161, 1209085754) index="0" unique_id=1598836585]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_035/Cube_035_Light Wood_0" parent_id_path=PackedInt32Array(706713161, 1314567696) index="0" unique_id=1598836585]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_035/Cube_035_Light Wood_0/StaticBody3D" unique_id=446105597]
 shape = SubResource("ConcavePolygonShape3D_itioi")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Plane_111/Plane_111_Pillar_0" parent_id_path=PackedInt32Array(706713161, 1172008905) index="0" unique_id=115507776]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Plane_111/Plane_111_Pillar_0" parent_id_path=PackedInt32Array(706713161, 705608131) index="0" unique_id=115507776]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Plane_111/Plane_111_Pillar_0/StaticBody3D" unique_id=123601417]
 shape = SubResource("ConcavePolygonShape3D_l4twk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_004/Cube_004_Green House_0" parent_id_path=PackedInt32Array(706713161, 205422376) index="0" unique_id=1574411225]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_004/Cube_004_Green House_0" parent_id_path=PackedInt32Array(706713161, 546340483) index="0" unique_id=1574411225]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_004/Cube_004_Green House_0/StaticBody3D" unique_id=993877865]
 shape = SubResource("ConcavePolygonShape3D_so1m4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_006/Cube_006_Green House_0" parent_id_path=PackedInt32Array(706713161, 1553519115) index="0" unique_id=1730521859]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_006/Cube_006_Green House_0" parent_id_path=PackedInt32Array(706713161, 2120734085) index="0" unique_id=1730521859]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_006/Cube_006_Green House_0/StaticBody3D" unique_id=425290817]
 shape = SubResource("ConcavePolygonShape3D_pl7vu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_008/Cube_008_Green House_0" parent_id_path=PackedInt32Array(706713161, 1016350209) index="0" unique_id=2114681935]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_008/Cube_008_Green House_0" parent_id_path=PackedInt32Array(706713161, 1375958891) index="0" unique_id=2114681935]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_008/Cube_008_Green House_0/StaticBody3D" unique_id=998699077]
 shape = SubResource("ConcavePolygonShape3D_m2uar")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_045/Cube_045_whitw wood_0" parent_id_path=PackedInt32Array(706713161, 887296539) index="0" unique_id=1514799705]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_045/Cube_045_whitw wood_0" parent_id_path=PackedInt32Array(706713161, 1832101798) index="0" unique_id=1514799705]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_045/Cube_045_whitw wood_0/StaticBody3D" unique_id=950887314]
 shape = SubResource("ConcavePolygonShape3D_jugrx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_056/Cube_056_4_0" parent_id_path=PackedInt32Array(706713161, 1926723997) index="0" unique_id=800405711]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_056/Cube_056_4_0" parent_id_path=PackedInt32Array(706713161, 1027243469) index="0" unique_id=800405711]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_056/Cube_056_4_0/StaticBody3D" unique_id=230017176]
 shape = SubResource("ConcavePolygonShape3D_887oo")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_061/Cube_061_4_0" parent_id_path=PackedInt32Array(706713161, 1765193821) index="0" unique_id=723763093]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_061/Cube_061_4_0" parent_id_path=PackedInt32Array(706713161, 232132097) index="0" unique_id=723763093]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_061/Cube_061_4_0/StaticBody3D" unique_id=775207217]
 shape = SubResource("ConcavePolygonShape3D_8uri6")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_070/Cube_070_3_0" parent_id_path=PackedInt32Array(706713161, 335662137) index="0" unique_id=690734849]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_070/Cube_070_3_0" parent_id_path=PackedInt32Array(706713161, 780259798) index="0" unique_id=690734849]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_070/Cube_070_3_0/StaticBody3D" unique_id=701370353]
 shape = SubResource("ConcavePolygonShape3D_36j4m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_071/Cube_071_3_0" parent_id_path=PackedInt32Array(706713161, 551657111) index="0" unique_id=1797527194]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_071/Cube_071_3_0" parent_id_path=PackedInt32Array(706713161, 1467762768) index="0" unique_id=1797527194]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_071/Cube_071_3_0/StaticBody3D" unique_id=1734633011]
 shape = SubResource("ConcavePolygonShape3D_0sr5i")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_073/Cube_073_3_0" parent_id_path=PackedInt32Array(706713161, 1626387714) index="0" unique_id=1131220734]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_073/Cube_073_3_0" parent_id_path=PackedInt32Array(706713161, 977112195) index="0" unique_id=1131220734]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_073/Cube_073_3_0/StaticBody3D" unique_id=2142969488]
 shape = SubResource("ConcavePolygonShape3D_jjuym")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_074/Cube_074_3_0" parent_id_path=PackedInt32Array(706713161, 868191151) index="0" unique_id=14393265]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_074/Cube_074_3_0" parent_id_path=PackedInt32Array(706713161, 1450195270) index="0" unique_id=14393265]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_074/Cube_074_3_0/StaticBody3D" unique_id=1396616692]
 shape = SubResource("ConcavePolygonShape3D_lag5v")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_075/Cube_075_4_0" parent_id_path=PackedInt32Array(706713161, 657577666) index="0" unique_id=721718871]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_075/Cube_075_4_0" parent_id_path=PackedInt32Array(706713161, 2009381540) index="0" unique_id=721718871]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Cube_075/Cube_075_4_0/StaticBody3D" unique_id=1065837323]
 shape = SubResource("ConcavePolygonShape3D_iu4jf")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Base map/Base map_Material_014_0" parent_id_path=PackedInt32Array(706713161, 1235430229) index="0" unique_id=2053717913]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Base map/Base map_Material_014_0" parent_id_path=PackedInt32Array(706713161, 1088858031) index="0" unique_id=2053717913]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Base map/Base map_Material_014_0/StaticBody3D" unique_id=497634828]
 shape = SubResource("ConcavePolygonShape3D_8wlxu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Board/Board_Board_0" parent_id_path=PackedInt32Array(706713161, 1154440631) index="0" unique_id=1880885545]
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Board/Board_Board_0" parent_id_path=PackedInt32Array(706713161, 1207487405) index="0" unique_id=1880885545]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/31986313d40c41e99a3693d7ea04a721_fbx/RootNode/Board/Board_Board_0/StaticBody3D" unique_id=1710602414]
 shape = SubResource("ConcavePolygonShape3D_t4fhs")
@@ -279,7 +279,7 @@ transform = Transform3D(0.8907687, 0.3463947, -0.29418004, 0, 0.64732206, 0.7622
 light_color = Color(0.5192985, 0.38967928, 0.70689493, 1)
 light_energy = 0.05
 
-[node name="EnemyTarget" parent="." instance=ExtResource("3_enemy")]
-position = Vector3(0, 2.2, -6)
+[node name="EnemyTarget" parent="." unique_id=1960580561 instance=ExtResource("3_enemy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0988452, -0.4553333, -3.2077823)
 
 [editable path="Sketchfab_Scene"]

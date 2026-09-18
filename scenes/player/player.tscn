@@ -20,7 +20,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hqtel")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -51,23 +51,21 @@ sprite_frames = SubResource("SpriteFrames_sweqy")
 animation = &"idle"
 script = ExtResource("3_i3pqv")
 
-[node name="FireAudio" type="AudioStreamPlayer" parent="CharacterBody3D/Head/Camera3D"]
+[node name="FireAudio" type="AudioStreamPlayer" parent="CharacterBody3D/Head/Camera3D" unique_id=1858196083]
 volume_db = -4.0
 
-[node name="Muzzle" type="Marker3D" parent="CharacterBody3D/Head/Camera3D"]
-position = Vector3(0.19, -0.13, -0.35)
+[node name="Muzzle" type="Marker3D" parent="CharacterBody3D/Head/Camera3D" unique_id=2035975469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19, -0.13, -0.35)
 
-[node name="MuzzleFlashLight" type="OmniLight3D" parent="CharacterBody3D/Head/Camera3D/Muzzle"]
+[node name="MuzzleFlashLight" type="OmniLight3D" parent="CharacterBody3D/Head/Camera3D/Muzzle" unique_id=1874985639]
 light_color = Color(1, 0.58, 0.15, 1)
 light_energy = 0.0
-omni_range = 5.0
 omni_attenuation = 2.0
-shadow_enabled = false
 
-[node name="AmmoHud" type="CanvasLayer" parent="CharacterBody3D/Head/Camera3D"]
+[node name="AmmoHud" type="CanvasLayer" parent="CharacterBody3D/Head/Camera3D" unique_id=540190486]
 layer = 10
 
-[node name="AmmoLabel" type="Label" parent="CharacterBody3D/Head/Camera3D/AmmoHud"]
+[node name="AmmoLabel" type="Label" parent="CharacterBody3D/Head/Camera3D/AmmoHud" unique_id=1249314986]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -84,7 +82,7 @@ theme_override_font_sizes/font_size = 32
 text = "30 / 30"
 horizontal_alignment = 2
 
-[node name="Crosshair" type="ColorRect" parent="CharacterBody3D/Head/Camera3D/AmmoHud"]
+[node name="Crosshair" type="ColorRect" parent="CharacterBody3D/Head/Camera3D/AmmoHud" unique_id=584105211]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -97,4 +95,3 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 1)

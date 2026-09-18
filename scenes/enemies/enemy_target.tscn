@@ -9,8 +9,8 @@ size = Vector3(1.25, 1.9, 0.15)
 [sub_resource type="StandardMaterial3D" id="Material_health_background"]
 shading_mode = 0
 albedo_color = Color(0.25, 0.02, 0.02, 1)
-billboard_mode = 1
 transparency = 1
+cull_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_health_background"]
 material = SubResource("Material_health_background")
@@ -21,14 +21,15 @@ shading_mode = 0
 albedo_color = Color(0.1, 1, 0.2, 1)
 emission_enabled = true
 emission = Color(0.02, 0.35, 0.04, 1)
-billboard_mode = 1
 transparency = 1
+cull_mode = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_health_fill"]
 material = SubResource("Material_health_fill")
 size = Vector2(1.1, 0.08)
 
 [node name="EnemyTarget" type="StaticBody3D"]
+scale = Vector3(1.5, 1.5, 1.5)
 script = ExtResource("1_script")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -40,14 +41,16 @@ position = Vector3(0, 0.95, 0)
 texture = ExtResource("2_texture")
 pixel_size = 0.005
 billboard = 1
-shaded = false
+shaded = true
 
-[node name="HealthBarBackground" type="MeshInstance3D" parent="."]
+[node name="HealthBar" type="Node3D" parent="."]
 position = Vector3(0, 2.05, 0)
+
+[node name="HealthBarBackground" type="MeshInstance3D" parent="HealthBar"]
 mesh = SubResource("QuadMesh_health_background")
 cast_shadow = 0
 
-[node name="HealthBarFill" type="MeshInstance3D" parent="."]
-position = Vector3(0, 2.05, -0.01)
+[node name="HealthBarFill" type="MeshInstance3D" parent="HealthBar"]
+position = Vector3(0, 0, 0.01)
 mesh = SubResource("QuadMesh_health_fill")
 cast_shadow = 0
