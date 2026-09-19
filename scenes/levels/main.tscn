@@ -73,6 +73,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6036181, -0.07319951, -0.01
 [node name="windmill2" parent="." unique_id=1010702455 instance=ExtResource("11_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5058274, -0.07319927, 0.69671017)
 
+[node name="CharacterBody3D2" parent="." unique_id=1238870871 instance=ExtResource("12_2xkjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.524662, 3.3278985, 1.9523945)
+data = ExtResource("13_dj21o")
+
 [node name="CharacterBody3D" parent="." unique_id=1426887059 instance=ExtResource("12_2xkjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.865816, 6.144327, -6.5042076)
+data = ExtResource("13_dj21o")
+
+[node name="CharacterBody3D3" parent="." unique_id=622420253 instance=ExtResource("12_2xkjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.866, 1.0176091, 14.099994)
+data = ExtResource("13_dj21o")
+
+[node name="CharacterBody3D4" parent="." unique_id=745145605 instance=ExtResource("12_2xkjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.866, 1.0176091, 3.9853506)
 data = ExtResource("13_dj21o")
