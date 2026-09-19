@@ -113,6 +113,7 @@ animations = [{
 [resource]
 script = ExtResource("1_8uoqw")
 name = "Sabrina"
+max_health = 75
 move_speed = 5.0
 damage = 20
 attack_range = 1.5
