@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://53iwpothbpu3"]
+
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_l4yx2"]
+[ext_resource type="Texture2D" uid="uid://dm70f8y6maf5i" path="res://assets/weapons/axe/mashado.png" id="2_qd5ob"]
+[ext_resource type="Texture2D" uid="uid://to23siqlrqyu" path="res://assets/weapons/axe/mashado 2.png" id="3_3l80o"]
+[ext_resource type="Texture2D" uid="uid://m0qvfd2ox4nq" path="res://assets/weapons/axe/mashado 3.png" id="4_1qepm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t0nak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qd5ob")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3l80o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1qepm")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 6.3
+}]
+
+[resource]
+script = ExtResource("1_l4yx2")
+name = "Machado"
+sprite_frames = SubResource("SpriteFrames_t0nak")
+damage = 40
+fire_rate = 1.7
+is_melee = true
+metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

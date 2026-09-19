@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c2pkl702p14hl"]
+
+[ext_resource type="Script" uid="uid://b5326pt33876o" path="res://scripts/enemies/enemy_data.gd" id="1_8uoqw"]
+[ext_resource type="Texture2D" uid="uid://dwbcc3jd0h0vw" path="res://assets/enemies/enemy_test.png" id="2_dahdm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dahdm"]
+atlas = ExtResource("2_dahdm")
+region = Rect2(0, 0, 255, 255)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pvkmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dahdm")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dahdm")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dahdm")
+}],
+"loop": 1,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dahdm")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_8uoqw")
+name = "Sabrina"
+sprite_variants = Array[SpriteFrames]([SubResource("SpriteFrames_pvkmq")])
+metadata/_custom_type_script = "uid://b5326pt33876o"

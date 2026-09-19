@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5p1q4bc88h2r" path="res://GLB format/building-m.glb" id="9_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dupthx4s6a46x" path="res://GLB format/shipping-container-c.glb" id="10_dg77c"]
 [ext_resource type="PackedScene" uid="uid://dm6c4j47qrjgx" path="res://GLB format/windmill.glb" id="11_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://oksj4ewt4wt" path="res://scenes/enemies/enemy.tscn" id="12_2xkjh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -70,3 +71,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6036181, -0.07319951, -0.01
 
 [node name="windmill2" parent="." unique_id=1010702455 instance=ExtResource("11_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5058274, -0.07319927, 0.69671017)
+
+[node name="CharacterBody3D" parent="." unique_id=1238870871 instance=ExtResource("12_2xkjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.865816, 7.9923115, -6.5042076)

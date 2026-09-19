@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://oksj4ewt4wt"]
+
+[ext_resource type="Texture2D" uid="uid://dwbcc3jd0h0vw" path="res://assets/enemies/enemy_test.png" id="1_6xk8f"]
+[ext_resource type="Script" uid="uid://la4nl7e5ldv1" path="res://scripts/enemies/enemy.gd" id="1_8e3ao"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mrjva"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftgux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6xk8f")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6xk8f")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6xk8f")
+}],
+"loop": 2,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6xk8f")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1238870871]
+script = ExtResource("1_8e3ao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1897316802]
+shape = SubResource("CapsuleShape3D_mrjva")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2131991203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7253288, 0)
+target_position = Vector3(0, 0, -1)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1779004868]
+transform = Transform3D(0.79, 0, 0, 0, 0.79, 0, 0, 0, 0.79, 0, 0, 0)
+billboard = 2
+double_sided = false
+sprite_frames = SubResource("SpriteFrames_ftgux")
+animation = &"shoot"

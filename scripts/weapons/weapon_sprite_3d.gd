@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		bob_time += delta * bob_speed
 		var offset_x := cos(bob_time * 0.5) * bob_amount_x
 		position.x = base_position.x + offset_x + flash_offset.x
-		position.y = base_position.y #+ flash_offset.y
+		position.y = base_position.y + flash_offset.y
 	else:
 		bob_time = 0.0
 		position.x = lerp(position.x, base_position.x + flash_offset.x, delta * return_speed)

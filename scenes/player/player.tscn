@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dp77vwrotxalk" path="res://scripts/weapons/weapon_sprite_3d.gd" id="3_i3pqv"]
 [ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="4_1jxqw"]
 [ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="5_1jxqw"]
+[ext_resource type="Resource" uid="uid://53iwpothbpu3" path="res://resources/weapons/axe.tres" id="6_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hs0m"]
 
@@ -27,7 +28,7 @@ animations = [{
 
 [node name="Node3D" type="Node3D" unique_id=1742417196]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1368982742]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1368982742 groups=["player"]]
 script = ExtResource("1_i3pqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1864252231]
@@ -41,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00047886372)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5935811, 0.043667555)
 near = 0.03
 script = ExtResource("2_hqtel")
-weapons = Array[ExtResource("3_2hs0m")]([ExtResource("4_1jxqw"), ExtResource("5_1jxqw")])
+weapons = Array[ExtResource("3_2hs0m")]([ExtResource("4_1jxqw"), ExtResource("5_1jxqw"), ExtResource("6_qek5x")])
 
 [node name="WeaponSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D/Head/Camera3D" unique_id=1405761930]
 transform = Transform3D(0.0773657, 0, 0, 0, 0.0773657, 0, 0, 0, 0.1, 0, 0, -0.50651574)

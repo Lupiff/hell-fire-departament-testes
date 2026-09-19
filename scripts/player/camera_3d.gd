@@ -58,6 +58,7 @@ func equip_weapon(index: int) -> void:
 	sprite.sprite_frames = data.sprite_frames
 	current_ammo = data.ammo_max
 	is_reloading = false
+	fire_cooldown = 0.0
 	_update_ammo_hud()
 	_play_animation(&"idle")
 
@@ -67,25 +68,44 @@ func switch_weapon(direction: int) -> void:
 	equip_weapon(wrapi(current_index + direction, 0, weapons.size()))
 
 func fire() -> void:
-	if is_reloading or current_ammo <= 0:
-		return
-
 	var data := weapons[current_index]
-	current_ammo -= 1
-	_update_ammo_hud()
+
+	if not data.is_melee:
+		if is_reloading or current_ammo <= 0:
+			return
+		current_ammo -= 1
+		_update_ammo_hud()
+
 	_play_fire_sound(data)
-	_play_muzzle_flash()
+
+	if not data.is_melee:
+		_play_muzzle_flash()
+
 	if sprite.animation != &"shoot" or not sprite.is_playing():
 		_play_animation(&"shoot")
 	sprite.trigger_recoil()
-	if data.is_hitscan:
+
+	if data.is_melee:
+		_do_melee(data)
+	elif data.is_hitscan:
 		var hit_position := _do_hitscan(data)
 		_spawn_tracer(muzzle.global_position, hit_position)
+		
+func _do_melee(data: WeaponData) -> void:
+	var from := global_position
+	var to := from + -global_transform.basis.z * data.melee_range
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [get_parent().get_parent()]
+	var result := get_world_3d().direct_space_state.intersect_ray(query)
+	if result and result.collider.has_method("take_damage"):
+		result.collider.take_damage(data.damage)
 
 func reload() -> void:
 	if weapons.is_empty() or is_reloading:
 		return
 	var data := weapons[current_index]
+	if data.is_melee:
+		return
 	if current_ammo >= data.ammo_max:
 		return
 	is_reloading = true
@@ -102,7 +122,11 @@ func _update_ammo_hud() -> void:
 	if weapons.is_empty():
 		ammo_label.text = ""
 		return
-	ammo_label.text = "%d / %d" % [current_ammo, weapons[current_index].ammo_max]
+	var data := weapons[current_index]
+	if data.is_melee:
+		ammo_label.text = ""       # ou algo tipo "∞", se preferir
+		return
+	ammo_label.text = "%d / %d" % [current_ammo, data.ammo_max]
 
 func _play_fire_sound(data: WeaponData) -> void:
 	if data.fire_sound:
