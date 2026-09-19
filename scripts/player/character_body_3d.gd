@@ -1,6 +1,9 @@
 extends CharacterBody3D
 
 @export var HEALTH := 100
+var current_health: int
+
+var is_dead := false
 
 const SPEED = 10.5
 const JUMP_VELOCITY = 4.5
@@ -15,6 +18,7 @@ const AIR_CAP = 16.0            # velocidade máxima no ar (permite ficar um pou
 var gravity = 20
 
 func _ready():
+	current_health = HEALTH
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
@@ -55,3 +59,18 @@ func _physics_process(delta):
 				velocity.z = horizontal_vel.y
 
 	move_and_slide()
+	
+func take_damage(amount: int) -> void:
+	if is_dead:
+		return
+	current_health -= amount
+	current_health = max(current_health, 0)
+	print("Player tomou dano! Vida: ", current_health)
+	if current_health <= 0:
+		_die()
+
+func _die() -> void:
+	is_dead = true
+	print("Player morreu!")
+	set_physics_process(false)      # trava movimento do player
+	# aqui depois entra: mostrar tela de game over, pausar o jogo, etc.

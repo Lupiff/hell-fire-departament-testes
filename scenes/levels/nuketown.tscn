@@ -272,7 +272,7 @@ shape = SubResource("ConcavePolygonShape3D_t4fhs")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Sketchfab_Scene" unique_id=37274667]
 environment = SubResource("Environment_xtqxc")
 
-[node name="player" parent="." unique_id=1742417196 groups=["player"] instance=ExtResource("2_sbfqc")]
+[node name="player" parent="." unique_id=1742417196 instance=ExtResource("2_sbfqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3552845, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1525536358]

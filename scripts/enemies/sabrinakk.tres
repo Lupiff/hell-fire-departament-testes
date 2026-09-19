@@ -2,12 +2,80 @@
 
 [ext_resource type="Script" uid="uid://b5326pt33876o" path="res://scripts/enemies/enemy_data.gd" id="1_8uoqw"]
 [ext_resource type="Texture2D" uid="uid://dwbcc3jd0h0vw" path="res://assets/enemies/enemy_test.png" id="2_dahdm"]
+[ext_resource type="Texture2D" uid="uid://dl0jlmw8hjvo0" path="res://assets/enemies/enemy_test_2.png" id="3_u2mln"]
+[ext_resource type="Texture2D" uid="uid://brfbo0cyc5lpj" path="res://assets/enemies/enemy_test_3.png" id="4_bf7jh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dahdm"]
-atlas = ExtResource("2_dahdm")
-region = Rect2(0, 0, 255, 255)
+[sub_resource type="SpriteFrames" id="SpriteFrames_dj21o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u2mln")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u2mln")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u2mln")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u2mln")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pvkmq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ui35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bf7jh")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bf7jh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bf7jh")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bf7jh")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8e3ao"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -19,7 +87,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dahdm")
+"texture": ExtResource("2_dahdm")
 }],
 "loop": 1,
 "name": &"idle",
@@ -29,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_dahdm")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"shoot",
 "speed": 5.0
 }, {
@@ -45,5 +113,9 @@ animations = [{
 [resource]
 script = ExtResource("1_8uoqw")
 name = "Sabrina"
-sprite_variants = Array[SpriteFrames]([SubResource("SpriteFrames_pvkmq")])
+move_speed = 5.0
+damage = 50
+attack_range = 1.5
+detection_range = 40.0
+sprite_variants = Array[SpriteFrames]([SubResource("SpriteFrames_dj21o"), SubResource("SpriteFrames_6ui35"), SubResource("SpriteFrames_8e3ao")])
 metadata/_custom_type_script = "uid://b5326pt33876o"
