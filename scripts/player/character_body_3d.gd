@@ -14,11 +14,15 @@ const AIR_CAP = 16.0            # velocidade máxima no ar (permite ficar um pou
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var health_component: HealthComponent = $Health
 
 var gravity = 20
 
 func _ready():
-	current_health = HEALTH
+	health_component.set_max_health(HEALTH)
+	current_health = health_component.current_health
+	health_component.health_changed.connect(_on_health_changed)
+	health_component.died.connect(_die)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
@@ -63,11 +67,11 @@ func _physics_process(delta):
 func take_damage(amount: int) -> void:
 	if is_dead:
 		return
-	current_health -= amount
-	current_health = max(current_health, 0)
+	health_component.take_damage(amount)
+
+func _on_health_changed(new_health: int, _max_health: int) -> void:
+	current_health = new_health
 	print("Player tomou dano! Vida: ", current_health)
-	if current_health <= 0:
-		_die()
 
 func _die() -> void:
 	is_dead = true

@@ -13,6 +13,7 @@ var attack_timer := 0.0
 var target: Node3D
 
 const GRAVITY := 20.0
+const HEALTH_BAR_WIDTH := 1.1
 
 var ai_tick_timer := 0.0
 const AI_TICK_RATE := 0.1
@@ -20,6 +21,9 @@ const CULL_DISTANCE := 40.0
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var health_component: HealthComponent = $Health
+@onready var health_bar: Node3D = $HealthBar
+@onready var health_fill: MeshInstance3D = $HealthBar/HealthBarFill
 
 
 func _ready() -> void:
@@ -27,7 +31,11 @@ func _ready() -> void:
 		push_error("Enemy sem EnemyData atribuído!")
 		return
 
-	current_health = data.max_health
+	health_component.set_max_health(data.max_health)
+	current_health = health_component.current_health
+	health_component.health_changed.connect(_on_health_changed)
+	health_component.died.connect(_die)
+	_update_health_bar(current_health, data.max_health)
 	animated_sprite_3d.sprite_frames = data.sprite_variants.pick_random()
 	animated_sprite_3d.play("idle")
 
@@ -68,6 +76,11 @@ func _physics_process(delta: float) -> void:
 	velocity.x = motion.x
 	velocity.z = motion.z
 	move_and_slide()
+
+func _process(_delta: float) -> void:
+	var camera := get_viewport().get_camera_3d()
+	if camera:
+		health_bar.look_at(camera.global_position, Vector3.UP, true)
 
 
 func _update_ai(_delta: float) -> void:
@@ -145,10 +158,17 @@ func _fire_projectile() -> void:
 func take_damage(amount: int) -> void:
 	if state == State.DEATH:
 		return
-	current_health -= amount
-	print("Inimigo tomou dano! Vida: ", current_health, " / ", data.max_health)
-	if current_health <= 0:
-		_die()
+	health_component.take_damage(amount)
+
+func _on_health_changed(new_health: int, max_health: int) -> void:
+	current_health = new_health
+	_update_health_bar(current_health, max_health)
+	print("Inimigo tomou dano! Vida: ", current_health, " / ", max_health)
+
+func _update_health_bar(current: int, maximum: int) -> void:
+	var ratio := clampf(float(current) / maximum, 0.0, 1.0)
+	health_fill.scale.x = ratio
+	health_fill.position.x = -HEALTH_BAR_WIDTH * (1.0 - ratio) * 0.5
 
 
 func _die() -> void:

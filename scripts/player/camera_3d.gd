@@ -3,6 +3,7 @@ extends Camera3D
 const BASE_FOV := 75.0
 const HITSCAN_RANGE := 1000.0
 const TRACER_SCRIPT := preload("res://scripts/weapons/tracer.gd")
+const HEALTH_BAR_WIDTH := 220.0
 
 @export var weapons: Array[WeaponData] = []
 
@@ -18,6 +19,9 @@ var is_reloading := false
 @onready var fire_audio: AudioStreamPlayer = $FireAudio
 @onready var muzzle: Marker3D = $Muzzle
 @onready var muzzle_flash_light: OmniLight3D = $Muzzle/MuzzleFlashLight
+@onready var player_health: HealthComponent = $"../../Health"
+@onready var health_bar_fill: ColorRect = $AmmoHud/HealthBarFill
+@onready var health_label: Label = $AmmoHud/HealthLabel
 
 var muzzle_flash_tween: Tween
 
@@ -25,6 +29,8 @@ func _ready() -> void:
 	base_weapon_scale = sprite.scale
 	fov = BASE_FOV
 	sprite.animation_finished.connect(_on_animation_finished)
+	player_health.health_changed.connect(_on_player_health_changed)
+	_on_player_health_changed(player_health.current_health, player_health.max_health)
 	if not weapons.is_empty():
 		equip_weapon(0)
 
@@ -127,6 +133,11 @@ func _update_ammo_hud() -> void:
 		ammo_label.text = ""       # ou algo tipo "∞", se preferir
 		return
 	ammo_label.text = "%d / %d" % [current_ammo, data.ammo_max]
+
+func _on_player_health_changed(current_health: int, max_health: int) -> void:
+	var ratio := clampf(float(current_health) / max_health, 0.0, 1.0)
+	health_bar_fill.offset_right = 24.0 + HEALTH_BAR_WIDTH * ratio
+	health_label.text = "VIDA %d / %d" % [current_health, max_health]
 
 func _play_fire_sound(data: WeaponData) -> void:
 	if data.fire_sound:

@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://oksj4ewt4wt"]
+[gd_scene load_steps=8 format=3 uid="uid://oksj4ewt4wt"]
 
 [ext_resource type="Script" uid="uid://la4nl7e5ldv1" path="res://scripts/enemies/enemy.gd" id="1_8e3ao"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="2_health"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mrjva"]
 
@@ -27,8 +28,31 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StandardMaterial3D" id="Material_health_background"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.25, 0.02, 0.02, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_health_background"]
+material = SubResource("Material_health_background")
+size = Vector2(1.1, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="Material_health_fill"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.1, 1, 0.2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_health_fill"]
+material = SubResource("Material_health_fill")
+size = Vector2(1.1, 0.08)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1238870871]
 script = ExtResource("1_8e3ao")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_health")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1897316802]
 shape = SubResource("CapsuleShape3D_mrjva")
@@ -44,3 +68,15 @@ shaded = true
 double_sided = false
 sprite_frames = SubResource("SpriteFrames_ftgux")
 animation = &"walk"
+
+[node name="HealthBar" type="Node3D" parent="."]
+position = Vector3(0, 1.35, 0)
+
+[node name="HealthBarBackground" type="MeshInstance3D" parent="HealthBar"]
+mesh = SubResource("QuadMesh_health_background")
+cast_shadow = 0
+
+[node name="HealthBarFill" type="MeshInstance3D" parent="HealthBar"]
+position = Vector3(0, 0, 0.01)
+mesh = SubResource("QuadMesh_health_fill")
+cast_shadow = 0

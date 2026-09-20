@@ -21,4 +21,6 @@ O dano usa hitscan a partir da retícula. O tracer é visual: começa no marcado
 
 O alvo de teste fica em `scenes/enemies`, usa uma imagem billboard em `assets/enemies` e recebe dano pelo método `take_damage`. O flash da boca da arma também aciona uma luz amarela breve.
 
+`HealthComponent` centraliza vida, dano, cura e eventos de morte para jogador e inimigos. A vida do jogador aparece no canto superior esquerdo; inimigos usam a barra 3D acima do sprite.
+
 Abra `project.godot` no Godot 4.7 e execute a cena principal.

@@ -2,15 +2,14 @@ extends StaticBody3D
 
 const HEALTH_BAR_WIDTH := 1.1
 
-@export var max_health := 100
-var health := 100
-
 @onready var health_fill: MeshInstance3D = $HealthBar/HealthBarFill
 @onready var health_bar: Node3D = $HealthBar
+@onready var health_component: HealthComponent = $Health
 
 func _ready() -> void:
-	health = max_health
-	_update_health_bar()
+	health_component.health_changed.connect(_on_health_changed)
+	health_component.died.connect(_on_died)
+	_update_health_bar(health_component.current_health, health_component.max_health)
 
 func _process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
@@ -18,12 +17,15 @@ func _process(_delta: float) -> void:
 		health_bar.look_at(camera.global_position, Vector3.UP, true)
 
 func take_damage(amount: int) -> void:
-	health = max(health - amount, 0)
-	_update_health_bar()
-	if health == 0:
-		queue_free()
+	health_component.take_damage(amount)
 
-func _update_health_bar() -> void:
-	var ratio := clampf(float(health) / max_health, 0.0, 1.0)
+func _on_health_changed(current_health: int, max_health: int) -> void:
+	_update_health_bar(current_health, max_health)
+
+func _on_died() -> void:
+	queue_free()
+
+func _update_health_bar(current_health: int, max_health: int) -> void:
+	var ratio := clampf(float(current_health) / max_health, 0.0, 1.0)
 	health_fill.scale.x = ratio
 	health_fill.position.x = -HEALTH_BAR_WIDTH * (1.0 - ratio) * 0.5
