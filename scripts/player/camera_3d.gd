@@ -14,6 +14,8 @@ var fire_cooldown := 0.0
 var reload_cooldown := 0.0
 var is_reloading := false
 
+var reserve_ammo: Array[int] = []
+
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
 @onready var ammo_label: Label = $AmmoHud/AmmoLabel
 @onready var fire_audio: AudioStreamPlayer = $FireAudio
@@ -31,6 +33,10 @@ func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
 	player_health.health_changed.connect(_on_player_health_changed)
 	_on_player_health_changed(player_health.current_health, player_health.max_health)
+	
+	reserve_ammo.resize(weapons.size())
+	reserve_ammo.fill(0)
+	
 	if not weapons.is_empty():
 		equip_weapon(0)
 
@@ -114,15 +120,32 @@ func reload() -> void:
 		return
 	if current_ammo >= data.ammo_max:
 		return
+	if reserve_ammo[current_index] <= 0:
+		return
 	is_reloading = true
 	reload_cooldown = data.reload_time
 	_play_animation(&"reload")
 
 func _finish_reload() -> void:
-	current_ammo = weapons[current_index].ammo_max
+	var data := weapons[current_index]
+	var needed := data.ammo_max - current_ammo
+	var transfer := mini(needed, reserve_ammo[current_index])
+
+	current_ammo += transfer
+	reserve_ammo[current_index] -= transfer
+
 	is_reloading = false
 	_update_ammo_hud()
 	_play_animation(&"idle")
+	
+func add_ammo(amount: int) -> void:
+	if weapons.is_empty():
+		return
+	var data := weapons[current_index]
+	if data.is_melee:
+		return
+	reserve_ammo[current_index] = mini(reserve_ammo[current_index] + amount, data.reserve_ammo_max)
+	_update_ammo_hud()
 
 func _update_ammo_hud() -> void:
 	if weapons.is_empty():
@@ -130,9 +153,9 @@ func _update_ammo_hud() -> void:
 		return
 	var data := weapons[current_index]
 	if data.is_melee:
-		ammo_label.text = ""       # ou algo tipo "∞", se preferir
+		ammo_label.text = ""
 		return
-	ammo_label.text = "%d / %d" % [current_ammo, data.ammo_max]
+	ammo_label.text = "%d / %d" % [current_ammo, reserve_ammo[current_index]]
 
 func _on_player_health_changed(current_health: int, max_health: int) -> void:
 	var ratio := clampf(float(current_health) / max_health, 0.0, 1.0)

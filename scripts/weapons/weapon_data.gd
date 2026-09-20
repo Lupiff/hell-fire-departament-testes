@@ -13,3 +13,4 @@ class_name WeaponData
 @export var is_automatic: bool = false
 @export var is_melee: bool = false          # <- novo
 @export var melee_range: float = 2.5         # <- novo, alcance do golpe
+@export var reserve_ammo_max: int = 90

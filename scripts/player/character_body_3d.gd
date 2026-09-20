@@ -72,6 +72,11 @@ func take_damage(amount: int) -> void:
 func _on_health_changed(new_health: int, _max_health: int) -> void:
 	current_health = new_health
 	print("Player tomou dano! Vida: ", current_health)
+	
+func heal(amount: int) -> void:
+	if is_dead:
+		return
+	health_component.heal(amount)
 
 func _die() -> void:
 	is_dead = true

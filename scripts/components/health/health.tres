@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PickupData" format=3 uid="uid://c2d7gwvp43r71"]
+
+[ext_resource type="Script" uid="uid://dcoiwlwqv15hj" path="res://scripts/components/pickup_data.gd" id="1_nyp51"]
+[ext_resource type="Texture2D" uid="uid://cw0uob8ekva8l" path="res://assets/components/vida.png" id="1_sjpwv"]
+
+[resource]
+script = ExtResource("1_nyp51")
+amount = 40
+icon = ExtResource("1_sjpwv")
+metadata/_custom_type_script = "uid://dcoiwlwqv15hj"
