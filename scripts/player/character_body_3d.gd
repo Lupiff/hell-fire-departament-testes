@@ -77,9 +77,15 @@ func heal(amount: int) -> void:
 	if is_dead:
 		return
 	health_component.heal(amount)
+	
+const GAME_OVER_SCENE := preload("res://scenes/player/gameover.tscn")
 
 func _die() -> void:
 	is_dead = true
 	print("Player morreu!")
-	set_physics_process(false)      # trava movimento do player
-	# aqui depois entra: mostrar tela de game over, pausar o jogo, etc.
+
+	var game_over := GAME_OVER_SCENE.instantiate()
+	get_tree().current_scene.add_child(game_over)
+
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().paused = true
