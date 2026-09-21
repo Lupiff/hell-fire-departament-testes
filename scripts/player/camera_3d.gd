@@ -15,6 +15,7 @@ var reload_cooldown := 0.0
 var is_reloading := false
 
 var reserve_ammo: Array[int] = []
+var magazine_ammo: Array[int] = []
 
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
 @onready var ammo_label: Label = $AmmoHud/AmmoLabel
@@ -36,6 +37,10 @@ func _ready() -> void:
 	
 	reserve_ammo.resize(weapons.size())
 	reserve_ammo.fill(0)
+	
+	magazine_ammo.resize(weapons.size())
+	for i in weapons.size():
+		magazine_ammo[i] = weapons[i].ammo_max
 	
 	if not weapons.is_empty():
 		equip_weapon(0)
@@ -68,7 +73,7 @@ func equip_weapon(index: int) -> void:
 	current_index = index
 	var data := weapons[current_index]
 	sprite.sprite_frames = data.sprite_frames
-	current_ammo = data.ammo_max
+	current_ammo = magazine_ammo[current_index]
 	is_reloading = false
 	fire_cooldown = 0.0
 	_update_ammo_hud()
@@ -86,6 +91,7 @@ func fire() -> void:
 		if is_reloading or current_ammo <= 0:
 			return
 		current_ammo -= 1
+		magazine_ammo[current_index] = current_ammo
 		_update_ammo_hud()
 
 	_play_fire_sound(data)
@@ -133,6 +139,7 @@ func _finish_reload() -> void:
 
 	current_ammo += transfer
 	reserve_ammo[current_index] -= transfer
+	magazine_ammo[current_index] = current_ammo
 
 	is_reloading = false
 	_update_ammo_hud()
