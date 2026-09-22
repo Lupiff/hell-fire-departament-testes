@@ -19,8 +19,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	bob_time += delta
-	icon_sprite.position.y = 0.6 + sin(bob_time * 2.0) * 0.1  # flutua suave
-	glow_mesh.rotate_y(delta * 0.8)  # gira devagar, dá vida ao efeito
+	icon_sprite.position.y = 0.6 + sin(bob_time * 2.0) * 0.1
+	glow_mesh.rotate_y(delta * 0.8)
 
 func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("player"):
@@ -28,11 +28,18 @@ func _on_body_entered(body: Node3D) -> void:
 
 	match data.type:
 		"health":
+			var health_comp: HealthComponent = body.get_node_or_null("Health")
+			if health_comp == null:
+				return
+			if health_comp.current_health >= health_comp.max_health:
+				return
 			if body.has_method("heal"):
 				body.heal(data.amount)
 		"ammo":
 			var cam := body.get_node_or_null("Head/Camera3D")
 			if cam and cam.has_method("add_ammo"):
-				cam.add_ammo(data.amount)
+				cam.add_ammo(data.amount, data.ammo_type)
+		_:
+			return
 
 	queue_free()

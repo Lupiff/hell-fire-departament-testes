@@ -6,3 +6,4 @@ class_name PickupData
 @export var icon: Texture2D
 @export var glow_color: Color = Color(0, 1, 0)
 @export var pickup_sound: AudioStream
+@export_enum("Pistol", "MP-40", "Doze") var ammo_type: String = "Pistol" # tem que ser IDENTICO ao q ta no weapondata

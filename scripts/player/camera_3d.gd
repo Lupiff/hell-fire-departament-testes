@@ -14,8 +14,8 @@ var fire_cooldown := 0.0
 var reload_cooldown := 0.0
 var is_reloading := false
 
-var reserve_ammo: Array[int] = []
 var magazine_ammo: Array[int] = []
+var reserve_by_type: Dictionary = {}
 
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
 @onready var ammo_label: Label = $AmmoHud/AmmoLabel
@@ -34,14 +34,13 @@ func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
 	player_health.health_changed.connect(_on_player_health_changed)
 	_on_player_health_changed(player_health.current_health, player_health.max_health)
-	
-	reserve_ammo.resize(weapons.size())
-	reserve_ammo.fill(0)
-	
+
 	magazine_ammo.resize(weapons.size())
 	for i in weapons.size():
 		magazine_ammo[i] = weapons[i].ammo_max
-	
+		if not weapons[i].is_melee and not reserve_by_type.has(weapons[i].ammo_type):
+			reserve_by_type[weapons[i].ammo_type] = 0
+
 	if not weapons.is_empty():
 		equip_weapon(0)
 
@@ -108,7 +107,7 @@ func fire() -> void:
 	elif data.is_hitscan:
 		var hit_position := _do_hitscan(data)
 		_spawn_tracer(muzzle.global_position, hit_position)
-		
+
 func _do_melee(data: WeaponData) -> void:
 	var from := global_position
 	var to := from + -global_transform.basis.z * data.melee_range
@@ -126,7 +125,8 @@ func reload() -> void:
 		return
 	if current_ammo >= data.ammo_max:
 		return
-	if reserve_ammo[current_index] <= 0:
+	var available: int = reserve_by_type.get(data.ammo_type, 0)
+	if available <= 0:
 		return
 	is_reloading = true
 	reload_cooldown = data.reload_time
@@ -135,24 +135,30 @@ func reload() -> void:
 func _finish_reload() -> void:
 	var data := weapons[current_index]
 	var needed := data.ammo_max - current_ammo
-	var transfer := mini(needed, reserve_ammo[current_index])
+	var available: int = reserve_by_type.get(data.ammo_type, 0)
+	var transfer := mini(needed, available)
 
 	current_ammo += transfer
-	reserve_ammo[current_index] -= transfer
 	magazine_ammo[current_index] = current_ammo
+	reserve_by_type[data.ammo_type] = available - transfer
 
 	is_reloading = false
 	_update_ammo_hud()
 	_play_animation(&"idle")
-	
-func add_ammo(amount: int) -> void:
-	if weapons.is_empty():
+
+func add_ammo(amount: int, ammo_type: String) -> void:
+	if not reserve_by_type.has(ammo_type):
 		return
-	var data := weapons[current_index]
-	if data.is_melee:
-		return
-	reserve_ammo[current_index] = mini(reserve_ammo[current_index] + amount, data.reserve_ammo_max)
+	var cap := reserve_ammo_max_for_type(ammo_type)
+	var current: int = reserve_by_type[ammo_type]
+	reserve_by_type[ammo_type] = mini(current + amount, cap)
 	_update_ammo_hud()
+
+func reserve_ammo_max_for_type(ammo_type: String) -> int:
+	for w in weapons:
+		if w.ammo_type == ammo_type:
+			return w.reserve_ammo_max
+	return 999999
 
 func _update_ammo_hud() -> void:
 	if weapons.is_empty():
@@ -162,7 +168,8 @@ func _update_ammo_hud() -> void:
 	if data.is_melee:
 		ammo_label.text = ""
 		return
-	ammo_label.text = "%d / %d" % [current_ammo, reserve_ammo[current_index]]
+	var reserve: int = reserve_by_type.get(data.ammo_type, 0)
+	ammo_label.text = "%d / %d" % [current_ammo, reserve]
 
 func _on_player_health_changed(current_health: int, max_health: int) -> void:
 	var ratio := clampf(float(current_health) / max_health, 0.0, 1.0)

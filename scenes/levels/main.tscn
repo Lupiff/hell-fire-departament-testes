@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://oksj4ewt4wt" path="res://scenes/enemies/enemy.tscn" id="12_2xkjh"]
 [ext_resource type="Resource" uid="uid://c2pkl702p14hl" path="res://scripts/enemies/sabrinakk.tres" id="13_dj21o"]
 [ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="14_6ui35"]
-[ext_resource type="Resource" uid="uid://cotcaxbio840s" path="res://scripts/components/ammo/ammo.tres" id="15_y56qp"]
+[ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="16_7exfm"]
+[ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="16_sv52t"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -79,9 +80,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5058274, -0.07319927, 0.696
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.865816, 6.144327, -6.5042076)
 data = ExtResource("13_dj21o")
 
-[node name="Area3D" parent="." unique_id=1530241403 instance=ExtResource("14_6ui35")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6263714, 0.018014014, 11.420655)
-
 [node name="Area3D2" parent="." unique_id=1441001819 instance=ExtResource("14_6ui35")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027799606, 0.018014014, 12.467333)
-data = ExtResource("15_y56qp")
+
+[node name="Area3D" parent="." unique_id=1530241403 instance=ExtResource("16_sv52t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7429137, 0.04771904, 11.846253)
+data = ExtResource("16_7exfm")
+
+[node name="Area3D3" parent="." unique_id=697301273 instance=ExtResource("16_sv52t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9853525, 0.17220023, 10.466963)

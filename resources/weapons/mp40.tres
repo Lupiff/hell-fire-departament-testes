@@ -42,4 +42,5 @@ ammo_max = 30
 fire_sound = ExtResource("4_fire")
 is_automatic = true
 reserve_ammo_max = 120
+ammo_type = "MP-40"
 metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

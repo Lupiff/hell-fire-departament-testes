@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PickupData" format=3 uid="uid://g6vmmnxy8rlw"]
+
+[ext_resource type="Texture2D" uid="uid://c3pavby0biwln" path="res://assets/components/ammo.png" id="1_a0bwk"]
+[ext_resource type="Script" uid="uid://dcoiwlwqv15hj" path="res://scripts/components/pickup_data.gd" id="2_tjnbu"]
+
+[resource]
+script = ExtResource("2_tjnbu")
+type = "ammo"
+amount = 30
+icon = ExtResource("1_a0bwk")
+glow_color = Color(0.9281934, 0.7791919, 0.31594998, 1)
+metadata/_custom_type_script = "uid://dcoiwlwqv15hj"
