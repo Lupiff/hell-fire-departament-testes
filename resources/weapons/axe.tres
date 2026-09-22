@@ -35,4 +35,5 @@ damage = 40
 fire_rate = 1.7
 is_melee = true
 melee_range = 2.6
+starts_unlocked = true
 metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

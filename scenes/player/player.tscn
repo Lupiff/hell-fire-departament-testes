@@ -46,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7471509, -0.00047886372)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040122747, 0.043667555)
 near = 0.03
 script = ExtResource("2_hqtel")
-weapons = Array[ExtResource("3_2hs0m")]([ExtResource("4_1jxqw"), ExtResource("5_1jxqw"), ExtResource("6_qek5x")])
+weapons = Array[ExtResource("3_2hs0m")]([ExtResource("6_qek5x"), ExtResource("4_1jxqw"), ExtResource("5_1jxqw")])
 
 [node name="WeaponSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D/Head/Camera3D" unique_id=1405761930]
 transform = Transform3D(0.0773657, 0, 0, 0, 0.0773657, 0, 0, 0, 0.1, 0, 0, -0.50651574)

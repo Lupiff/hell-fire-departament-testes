@@ -16,6 +16,7 @@ var is_reloading := false
 
 var magazine_ammo: Array[int] = []
 var reserve_by_type: Dictionary = {}
+var unlocked: Array[bool] = []
 
 @onready var sprite: AnimatedSprite3D = $WeaponSprite3D
 @onready var ammo_label: Label = $AmmoHud/AmmoLabel
@@ -36,13 +37,21 @@ func _ready() -> void:
 	_on_player_health_changed(player_health.current_health, player_health.max_health)
 
 	magazine_ammo.resize(weapons.size())
+	unlocked.resize(weapons.size())
 	for i in weapons.size():
 		magazine_ammo[i] = weapons[i].ammo_max
+		unlocked[i] = weapons[i].starts_unlocked
 		if not weapons[i].is_melee and not reserve_by_type.has(weapons[i].ammo_type):
 			reserve_by_type[weapons[i].ammo_type] = 0
 
+	var start_index := 0
+	for i in weapons.size():
+		if unlocked[i]:
+			start_index = i
+			break
+
 	if not weapons.is_empty():
-		equip_weapon(0)
+		equip_weapon(start_index)
 
 func _process(delta: float) -> void:
 	if weapons.is_empty():
@@ -69,6 +78,8 @@ func apply_fov(new_fov: float) -> void:
 func equip_weapon(index: int) -> void:
 	if index < 0 or index >= weapons.size():
 		return
+	if not unlocked[index]:
+		return
 	current_index = index
 	var data := weapons[current_index]
 	sprite.sprite_frames = data.sprite_frames
@@ -78,10 +89,32 @@ func equip_weapon(index: int) -> void:
 	_update_ammo_hud()
 	_play_animation(&"idle")
 
+func equip_weapon_by_slot(slot_number: int) -> void:
+	var index := slot_number - 1
+	if index < 0 or index >= weapons.size():
+		return
+	if not unlocked[index]:
+		return
+	equip_weapon(index)
+
+func unlock_weapon(weapon_data: WeaponData) -> void:
+	var idx := weapons.find(weapon_data)
+	if idx == -1:
+		return
+	if unlocked[idx]:
+		return
+	unlocked[idx] = true
+	equip_weapon(idx)
+
 func switch_weapon(direction: int) -> void:
 	if weapons.size() <= 1:
 		return
-	equip_weapon(wrapi(current_index + direction, 0, weapons.size()))
+	var idx := current_index
+	for i in weapons.size():
+		idx = wrapi(idx + direction, 0, weapons.size())
+		if unlocked[idx]:
+			equip_weapon(idx)
+			return
 
 func fire() -> void:
 	var data := weapons[current_index]
@@ -223,7 +256,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			apply_fov(clampf(fov - 5.0, 60.0, 100.0))
 		elif event.keycode == KEY_BRACKETRIGHT:
 			apply_fov(clampf(fov + 5.0, 60.0, 100.0))
-		elif event.keycode == KEY_TAB:
-			switch_weapon(1)
 		elif event.keycode == KEY_R:
 			reload()
+		elif event.keycode >= KEY_1 and event.keycode <= KEY_9:
+			equip_weapon_by_slot(event.keycode - KEY_1 + 1)

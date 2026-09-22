@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://8okdyf6awyqt"]
+
+[ext_resource type="Script" uid="uid://cewiaouqldayq" path="res://scripts/components/weapon_item.gd" id="1_b6a37"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5fpi0"]
+radius = 0.53
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftgux"]
+shading_mode = 0
+albedo_color = Color(0.047058824, 0.627451, 0.90588236, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ga66r"]
+material = SubResource("StandardMaterial3D_ftgux")
+height = 0.001
+
+[node name="Area3D" type="Area3D" unique_id=1530241403]
+script = ExtResource("1_b6a37")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=381539867]
+shape = SubResource("SphereShape3D_5fpi0")
+
+[node name="GlowMesh" type="MeshInstance3D" parent="." unique_id=821818538]
+mesh = SubResource("CylinderMesh_ga66r")
+
+[node name="IconSprite" type="Sprite3D" parent="." unique_id=379218749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3837877, 0)
+pixel_size = 0.001
+billboard = 2

@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="14_6ui35"]
 [ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="16_7exfm"]
 [ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="16_sv52t"]
+[ext_resource type="PackedScene" uid="uid://8okdyf6awyqt" path="res://scripts/components/weapon_item.tscn" id="17_5wre2"]
+[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="18_qy6q0"]
+[ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="19_ykry0"]
+[ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="20_im81g"]
+[ext_resource type="Texture2D" uid="uid://bp21nei05avpy" path="res://assets/weapons/sten/icon.webp" id="21_ysjpo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -91,3 +96,13 @@ data = ExtResource("16_7exfm")
 
 [node name="Area3D3" parent="." unique_id=697301273 instance=ExtResource("16_sv52t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9853525, 0.17220023, 10.466963)
+
+[node name="Area3D4" parent="." unique_id=82911888 instance=ExtResource("17_5wre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.904353, 0.058061875, 7.909754)
+weapon = ExtResource("18_qy6q0")
+icon = ExtResource("19_ykry0")
+
+[node name="Area3D5" parent="." unique_id=1069604361 instance=ExtResource("17_5wre2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7738667, 0.058061875, 7.909754)
+weapon = ExtResource("20_im81g")
+icon = ExtResource("21_ysjpo")
