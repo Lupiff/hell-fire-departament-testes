@@ -37,9 +37,15 @@ func _on_body_entered(body: Node3D) -> void:
 				body.heal(data.amount)
 		"ammo":
 			var cam := body.get_node_or_null("Head/Camera3D")
-			if cam and cam.has_method("add_ammo"):
-				cam.add_ammo(data.amount, data.ammo_type)
+			if cam == null or not cam.has_method("add_ammo"):
+				return
+			var current_reserve: int = cam.get_reserve_ammo(data.ammo_type)
+			var cap: int = cam.reserve_ammo_max_for_type(data.ammo_type)
+			if current_reserve >= cap:
+				return
+			cam.add_ammo(data.amount, data.ammo_type)
 		_:
 			return
 
 	queue_free()
+	

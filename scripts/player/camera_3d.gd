@@ -200,6 +200,9 @@ func reserve_ammo_max_for_type(ammo_type: String) -> int:
 		if w.ammo_type == ammo_type:
 			return w.reserve_ammo_max
 	return 999999
+	
+func get_reserve_ammo(ammo_type: String) -> int:
+	return reserve_by_type.get(ammo_type, 0)
 
 func _update_ammo_hud() -> void:
 	if weapons.is_empty():

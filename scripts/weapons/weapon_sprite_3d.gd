@@ -13,6 +13,7 @@ extends AnimatedSprite3D
 
 var base_position: Vector3
 var bob_time := 0.0
+var bob_alpha := 0.0
 var recoil_offset_z := 0.0
 var recoil_tween: Tween
 var flash_offset := Vector2.ZERO
@@ -29,15 +30,17 @@ func _process(delta: float) -> void:
 
 	var horizontal_velocity := Vector3(player.velocity.x, 0, player.velocity.z)
 	var is_moving := horizontal_velocity.length() > 0.5 and player.is_on_floor()
-	if is_moving:
-		bob_time += delta * bob_speed
-		var offset_x := cos(bob_time * 0.5) * bob_amount_x
-		position.x = base_position.x + offset_x + flash_offset.x
-		position.y = base_position.y + flash_offset.y
-	else:
-		bob_time = 0.0
-		position.x = lerp(position.x, base_position.x + flash_offset.x, delta * return_speed)
-		position.y = lerp(position.y, base_position.y + flash_offset.y, delta * return_speed)
+
+	var target_alpha := 1.0 if is_moving else 0.0
+	bob_alpha = move_toward(bob_alpha, target_alpha, delta * return_speed)
+
+	bob_time += delta * bob_speed
+
+	var offset_x := cos(bob_time * 0.5) * bob_amount_x * bob_alpha
+	var offset_y := absf(sin(bob_time)) * bob_amount_y * bob_alpha
+
+	position.x = base_position.x + offset_x + flash_offset.x
+	position.y = base_position.y + offset_y + flash_offset.y
 
 	if flash_jitter_time > 0.0:
 		flash_jitter_time -= delta
