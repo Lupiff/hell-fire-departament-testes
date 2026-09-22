@@ -79,6 +79,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5058274, -0.07319927, 0.696
 [node name="CharacterBody3D" parent="." unique_id=1426887059 instance=ExtResource("12_2xkjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.865816, 6.144327, -6.5042076)
 data = ExtResource("13_dj21o")
+health_pickup_scene = ExtResource("14_6ui35")
+ammo_pickup_scene = ExtResource("16_sv52t")
 
 [node name="Area3D2" parent="." unique_id=1441001819 instance=ExtResource("14_6ui35")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027799606, 0.018014014, 12.467333)

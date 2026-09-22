@@ -12,3 +12,8 @@ class_name EnemyData
 @export var detection_range: float = 15.0    # distância pra começar a perseguir
 
 @export var sprite_variants: Array[SpriteFrames] = []  # as 2-3 variantes visuais desse tipo
+
+# drops
+
+@export var drop_chance: float = 0.3   # 30% de chance
+@export var possible_drops: Array[PickupData] = []

@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c2pkl702p14hl"]
 
 [ext_resource type="Script" uid="uid://b5326pt33876o" path="res://scripts/enemies/enemy_data.gd" id="1_8uoqw"]
+[ext_resource type="Script" uid="uid://dcoiwlwqv15hj" path="res://scripts/components/pickup_data.gd" id="1_bf7jh"]
 [ext_resource type="Texture2D" uid="uid://dwbcc3jd0h0vw" path="res://assets/enemies/enemy_test.png" id="2_dahdm"]
+[ext_resource type="Resource" uid="uid://c2d7gwvp43r71" path="res://scripts/components/health/health.tres" id="2_si4l1"]
+[ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="3_je7ty"]
 [ext_resource type="Texture2D" uid="uid://dl0jlmw8hjvo0" path="res://assets/enemies/enemy_test_2.png" id="3_u2mln"]
+[ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="4_7tf5n"]
 [ext_resource type="Texture2D" uid="uid://brfbo0cyc5lpj" path="res://assets/enemies/enemy_test_3.png" id="4_bf7jh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dj21o"]
@@ -119,4 +123,6 @@ damage = 20
 attack_range = 1.5
 detection_range = 40.0
 sprite_variants = Array[SpriteFrames]([SubResource("SpriteFrames_dj21o"), SubResource("SpriteFrames_6ui35"), SubResource("SpriteFrames_8e3ao")])
+drop_chance = 100.0
+possible_drops = Array[ExtResource("1_bf7jh")]([ExtResource("2_si4l1"), ExtResource("3_je7ty"), ExtResource("4_7tf5n")])
 metadata/_custom_type_script = "uid://b5326pt33876o"

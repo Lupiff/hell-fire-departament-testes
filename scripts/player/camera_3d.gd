@@ -150,8 +150,8 @@ func add_ammo(amount: int, ammo_type: String) -> void:
 	if not reserve_by_type.has(ammo_type):
 		return
 	var cap := reserve_ammo_max_for_type(ammo_type)
-	var current: int = reserve_by_type[ammo_type]
-	reserve_by_type[ammo_type] = mini(current + amount, cap)
+	var current_reserve: int = reserve_by_type[ammo_type]
+	reserve_by_type[ammo_type] = mini(current_reserve + amount, cap)
 	_update_ammo_hud()
 
 func reserve_ammo_max_for_type(ammo_type: String) -> int:

@@ -4,6 +4,8 @@ class_name Enemy
 enum State { IDLE, WALK, ATTACK, DEATH }
 
 @export var data: EnemyData
+@export var health_pickup_scene: PackedScene
+@export var ammo_pickup_scene: PackedScene
 
 var current_health: int
 var state := State.IDLE
@@ -176,5 +178,37 @@ func _die() -> void:
 	animated_sprite_3d.play("death")
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
+	_try_drop_pickup()
 	await animated_sprite_3d.animation_finished
 	queue_free()
+
+func _try_drop_pickup() -> void:
+	if data.possible_drops.is_empty():
+		return
+	if randf() > data.drop_chance:
+		return
+
+	var chosen_data: PickupData = data.possible_drops.pick_random()
+	var scene: PackedScene = health_pickup_scene if chosen_data.type == "health" else ammo_pickup_scene
+
+	if not scene:
+		return
+
+	var pickup := scene.instantiate()
+	pickup.data = chosen_data
+	get_tree().current_scene.add_child(pickup)
+	pickup.global_position = _get_floor_position()
+
+func _get_floor_position() -> Vector3:
+	var space_state := get_world_3d().direct_space_state
+	var from := global_position
+	var to := global_position + Vector3.DOWN * 5.0   # procura o chão até 5m abaixo
+
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+
+	var result := space_state.intersect_ray(query)
+	if result:
+		return result.position + Vector3(0, 0.10, 0) 
+
+	return global_position   # fallback: se não achar chão, usa a posição original
