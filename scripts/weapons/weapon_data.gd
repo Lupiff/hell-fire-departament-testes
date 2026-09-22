@@ -15,4 +15,5 @@ class_name WeaponData
 @export var melee_range: float = 2.5         # <- novo, alcance do golpe
 @export var reserve_ammo_max: int = 90
 @export_enum("Pistol", "MP-40", "Doze") var ammo_type: String = "Pistol" # tem que ser IDENTICO ao q ta no pickupData
+@export var melee_damage_frame: int = 2   # índice 0-based; "3º frame" = índice 2
 @export var starts_unlocked: bool = false

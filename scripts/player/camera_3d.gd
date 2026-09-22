@@ -136,7 +136,7 @@ func fire() -> void:
 	sprite.trigger_recoil()
 
 	if data.is_melee:
-		_do_melee(data)
+		_do_melee_delayed(data)
 	elif data.is_hitscan:
 		var hit_position := _do_hitscan(data)
 		_spawn_tracer(muzzle.global_position, hit_position)
@@ -149,6 +149,14 @@ func _do_melee(data: WeaponData) -> void:
 	var result := get_world_3d().direct_space_state.intersect_ray(query)
 	if result and result.collider.has_method("take_damage"):
 		result.collider.take_damage(data.damage)
+		
+func _do_melee_delayed(data: WeaponData) -> void:
+	await _wait_for_frame(data.melee_damage_frame)
+	_do_melee(data)
+
+func _wait_for_frame(target_frame: int) -> void:
+	while sprite.animation == &"shoot" and sprite.frame < target_frame:
+		await sprite.frame_changed
 
 func reload() -> void:
 	if weapons.is_empty() or is_reloading:
