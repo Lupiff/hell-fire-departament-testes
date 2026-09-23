@@ -1,24 +1,50 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://vw6ve8x4lrm5"]
 
 [ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_6n70g"]
-[ext_resource type="Texture2D" uid="uid://dvbnl8qo1dssa" path="res://arma teste.png" id="2_iyvo6"]
+[ext_resource type="Texture2D" uid="uid://c8xsnohs80se1" path="res://assets/weapons/sten/idle.png" id="2_afy3f"]
+[ext_resource type="Texture2D" uid="uid://hgdobtxno1ba" path="res://assets/weapons/sten/reload1.png" id="3_ph2hy"]
+[ext_resource type="Texture2D" uid="uid://4yn76gt388x" path="res://assets/weapons/sten/reload2.png" id="4_d7qup"]
+[ext_resource type="Texture2D" uid="uid://c36xpmhk4dfnu" path="res://assets/weapons/sten/reload3.png" id="5_fei1p"]
+[ext_resource type="Texture2D" uid="uid://bu2i2r5gm1jc6" path="res://assets/weapons/sten/reload4.png" id="6_s8xw1"]
+[ext_resource type="Texture2D" uid="uid://bp5xrwtgdyxsw" path="res://assets/weapons/sten/reload5.png" id="7_ucs11"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8ef8i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_iyvo6")
+"texture": ExtResource("2_afy3f")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ph2hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d7qup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fei1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s8xw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ucs11")
+}],
+"loop": 0,
+"name": &"reload",
+"speed": 10.0
 }]
 
 [resource]
 script = ExtResource("1_6n70g")
 name = "teste"
 sprite_frames = SubResource("SpriteFrames_8ef8i")
-damage = 15
+damage = 27
 fire_rate = 5.0
 ammo_max = 33
+reload_time = 0.5
 metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

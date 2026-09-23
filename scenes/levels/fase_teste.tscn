@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="20_tbyi0"]
 [ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="21_fpv4k"]
 [ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="22_3dr3n"]
+[ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="23_epekq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ga66r"]
 
@@ -254,6 +255,11 @@ shape = SubResource("BoxShape3D_ftgux")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.38129, 0.0005, 52.012974)
 weapon = ExtResource("14_3dr3n")
 icon = ExtResource("15_epekq")
+
+[node name="Area3D6" parent="." unique_id=350461010 instance=ExtResource("13_71hq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.38129, 0.0005, 75.68378)
+weapon = ExtResource("16_2jg6q")
+icon = ExtResource("17_ulpwq")
 
 [node name="Area3D2" parent="." unique_id=1480080063 instance=ExtResource("13_71hq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.055781, 0.0005, 7.1139803)
@@ -1305,6 +1311,18 @@ data = ExtResource("22_3dr3n")
 [node name="Area3D4" parent="." unique_id=465905769 instance=ExtResource("21_fpv4k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.11421, 0.0005, 51.925594)
 data = ExtResource("22_3dr3n")
+
+[node name="Area3D7" parent="." unique_id=1575587021 instance=ExtResource("21_fpv4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.11421, 0.0005, 76.076035)
+data = ExtResource("23_epekq")
+
+[node name="Area3D8" parent="." unique_id=105887319 instance=ExtResource("21_fpv4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.7799, 0.0005, 76.076035)
+data = ExtResource("23_epekq")
+
+[node name="Area3D9" parent="." unique_id=1512677602 instance=ExtResource("21_fpv4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 148.96214, 0.0005, 72.43432)
+data = ExtResource("23_epekq")
 
 [node name="Area3D5" parent="." unique_id=1919491148 instance=ExtResource("21_fpv4k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.8422, 0.0005, 51.925594)
