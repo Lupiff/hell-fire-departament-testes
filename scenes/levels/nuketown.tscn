@@ -7,6 +7,10 @@
 [ext_resource type="Resource" uid="uid://c2pkl702p14hl" path="res://scripts/enemies/sabrinakk.tres" id="5_amcyt"]
 [ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="6_fp2p0"]
 [ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="7_fp2p0"]
+[ext_resource type="PackedScene" uid="uid://8okdyf6awyqt" path="res://scripts/components/weapon_item.tscn" id="7_ig5se"]
+[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="8_dq60n"]
+[ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="9_1lnob"]
+[ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="11_ljlhr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xtqxc"]
 data = PackedVector3Array(-0.6978, -11.9106, -1, -0.6978, 0.0703, 1.8095, -0.6978, -11.9106, 1.8095, -0.6978, -11.9106, -1, -0.6978, 0.0703, -1, -0.6978, 0.0703, 1.8095, -0.6978, -11.9106, 1.8095, -0.6978, -12.790899, -1, -0.6978, -11.9106, -1, -0.6978, -11.9106, 1.8095, -0.6978, -12.790899, 1.8095, -0.6978, -12.790899, -1, 0.25669998, 0.0703, -1, 8.2245, 0.0703, 1.8095, 0.25669998, 0.0703, 1.8095, 0.25669998, 0.0703, -1, 8.2245, 0.0703, -1, 8.2245, 0.0703, 1.8095, 8.2245, 0.0703, -1, 8.2245, -11.5014, 1.8095, 8.2245, 0.0703, 1.8095, 8.2245, 0.0703, -1, 8.2245, -11.5014, -1, 8.2245, -11.5014, 1.8095, -0.6978, -11.9106, -1, 0.25669998, -12.790899, -1, 0.25669998, -11.5014, -1, -0.6978, -11.9106, -1, -0.6978, -12.790899, -1, 0.25669998, -12.790899, -1, -0.6978, 0.0703, -1, -0.6978, -11.9106, -1, 0.25669998, -11.5014, -1, -0.6978, 0.0703, -1, 0.25669998, -11.5014, -1, 0.25669998, 0.0703, -1, 0.25669998, 0.0703, -1, 0.25669998, -11.5014, -1, 8.2245, -11.5014, -1, 0.25669998, 0.0703, -1, 8.2245, -11.5014, -1, 8.2245, 0.0703, -1, 0.25669998, 0.0703, 1.8095, -0.6978, -11.9106, 1.8095, -0.6978, 0.0703, 1.8095, 0.25669998, 0.0703, 1.8095, 0.25669998, -11.5014, 1.8095, -0.6978, -11.9106, 1.8095, 8.2245, 0.0703, 1.8095, 0.25669998, -11.5014, 1.8095, 0.25669998, 0.0703, 1.8095, 8.2245, 0.0703, 1.8095, 8.2245, -11.5014, 1.8095, 0.25669998, -11.5014, 1.8095, 0.25669998, -11.5014, 1.8095, 0.25669998, -12.790899, 1.8095, -0.6978, -12.790899, 1.8095, 0.25669998, -11.5014, 1.8095, -0.6978, -12.790899, 1.8095, -0.6978, -11.9106, 1.8095, 8.2245, -11.5014, -1, 0.25669998, -11.5014, 1.8095, 8.2245, -11.5014, 1.8095, 8.2245, -11.5014, -1, 0.25669998, -11.5014, -1, 0.25669998, -11.5014, 1.8095, -0.6978, 0.0703, -1, 0.25669998, 0.0703, 1.8095, -0.6978, 0.0703, 1.8095, -0.6978, 0.0703, -1, 0.25669998, 0.0703, -1, 0.25669998, 0.0703, 1.8095, 0.25669998, -12.790899, -1, -0.6978, -12.790899, 1.8095, 0.25669998, -12.790899, 1.8095, 0.25669998, -12.790899, -1, -0.6978, -12.790899, -1, -0.6978, -12.790899, 1.8095, 0.25669998, -11.5014, -1, 0.25669998, -12.790899, 1.8095, 0.25669998, -11.5014, 1.8095, 0.25669998, -11.5014, -1, 0.25669998, -12.790899, -1, 0.25669998, -12.790899, 1.8095)
@@ -325,13 +329,25 @@ data = ExtResource("5_amcyt")
 [node name="vida" parent="." unique_id=1530241403 instance=ExtResource("6_fp2p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.329939, 0.01877606, 1.4770555)
 
-[node name="Area3D" parent="." unique_id=897284114 instance=ExtResource("7_fp2p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5386343, 0.07122836, 6.9166474)
+[node name="Area3D4" parent="." unique_id=925194186 instance=ExtResource("7_ig5se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.256328, 0.045556344, 1.4567497)
+weapon = ExtResource("8_dq60n")
+icon = ExtResource("9_1lnob")
 
-[node name="Area3D2" parent="." unique_id=586325493 instance=ExtResource("7_fp2p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6290073, 0.14563763, -3.8428917)
+[node name="Area3D" parent="." unique_id=326708779 instance=ExtResource("7_fp2p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5390735, 0.051669933, 4.7874403)
+data = ExtResource("11_ljlhr")
 
-[node name="Area3D3" parent="." unique_id=1584699838 instance=ExtResource("7_fp2p0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.127806, 0.14563763, 5.6779127)
+[node name="Area3D2" parent="." unique_id=1633925408 instance=ExtResource("7_fp2p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5390735, 0.051669933, -1.3482599)
+data = ExtResource("11_ljlhr")
+
+[node name="Area3D3" parent="." unique_id=1539646412 instance=ExtResource("7_fp2p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037555933, 0.051669933, -1.3482599)
+data = ExtResource("11_ljlhr")
+
+[node name="Area3D5" parent="." unique_id=1949757190 instance=ExtResource("7_fp2p0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037555933, 0.051669933, 3.7107162)
+data = ExtResource("11_ljlhr")
 
 [editable path="Sketchfab_Scene"]
