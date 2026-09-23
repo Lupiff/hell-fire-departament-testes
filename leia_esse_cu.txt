@@ -1,0 +1,4 @@
+Log de Alterações: 
+	- Criação da pasta Door e das portas em geral, scripts etc...
+	- Alterei o nome do Boneco Pra Player
+	
