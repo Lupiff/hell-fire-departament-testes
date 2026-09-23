@@ -13,8 +13,8 @@ size = Vector2(2, 3)
 cull_mode = 2
 albedo_texture = ExtResource("1_yl1m2")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yl1m2"]
-data = PackedVector3Array(1, -1.5, 0, -1, -1.5, 0, 1, 1.5, 0, -1, -1.5, 0, -1, 1.5, 0, 1, 1.5, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6h7gk"]
+size = Vector3(2, 3, 0)
 
 [node name="door" type="Area3D" unique_id=187862479]
 script = ExtResource("1_omnsh")
@@ -29,4 +29,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wa2as")
 [node name="StaticBody3D" type="StaticBody3D" parent="mesh" unique_id=524953696]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/StaticBody3D" unique_id=147245769]
-shape = SubResource("ConcavePolygonShape3D_yl1m2")
+shape = SubResource("BoxShape3D_6h7gk")
