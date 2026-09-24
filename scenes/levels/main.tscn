@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="19_ykry0"]
 [ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="20_im81g"]
 [ext_resource type="Texture2D" uid="uid://bp21nei05avpy" path="res://assets/weapons/sten/icon.webp" id="21_ysjpo"]
+[ext_resource type="PackedScene" uid="uid://bc0ljlpyj0imx" path="res://assets/Key/key_item.tscn" id="23_ykry0"]
+[ext_resource type="Texture2D" uid="uid://ct06gyguf1jwe" path="res://assets/Key/key_sprited.png" id="24_im81g"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -110,3 +112,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0849285, 2.2108176, 13.4868
 
 [node name="door" parent="." unique_id=187862479 instance=ExtResource("7_qy6q0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.366518, 1.5221639, 11.380089)
+required_key = "red"
+
+[node name="Area3D6" parent="." unique_id=853848781 instance=ExtResource("23_ykry0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9041576, 0.019249082, 10.756569)
+icon = ExtResource("24_im81g")

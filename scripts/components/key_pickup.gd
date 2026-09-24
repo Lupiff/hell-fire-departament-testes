@@ -12,11 +12,18 @@ var bob_time := 0.0
 
 func _ready() -> void:
 	icon_sprite.texture = icon
+
 	var mat := glow_mesh.get_surface_override_material(0)
+	if mat == null:
+		mat = glow_mesh.mesh.surface_get_material(0)
+
 	if mat is StandardMaterial3D:
 		mat = mat.duplicate()
+		mat.albedo_color = glow_color
+		mat.emission_enabled = true
 		mat.emission = glow_color
 		glow_mesh.set_surface_override_material(0, mat)
+
 	body_entered.connect(_on_body_entered)
 
 func _process(delta: float) -> void:
