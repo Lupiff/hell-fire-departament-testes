@@ -98,8 +98,21 @@ func heal(amount: int) -> void:
 		return
 	health_component.heal(amount)
 
-const GAME_OVER_SCENE := preload("res://scenes/player/gameover.tscn")
 
+# CHAVES 
+var keys: Array[String] = []
+
+func add_key(keys_color : String) -> void:
+	if not keys.has(keys_color):
+		keys.append(keys_color)
+		print("Chave Coletada: ", keys_color)
+
+func has_key(key_color: String) -> bool:
+	return keys.has(key_color)
+
+
+# Morte 
+const GAME_OVER_SCENE := preload("res://scenes/player/gameover.tscn")
 func _die() -> void:
 	is_dead = true
 	print("Player morreu!")
