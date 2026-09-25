@@ -1,0 +1,460 @@
+[gd_scene format=3 uid="uid://51ewrmu6txx1"]
+
+[ext_resource type="PackedScene" uid="uid://bwk8r1rsoigkp" path="res://assets/maps/low-poly-city-pack/source/поездок 777это все/поездок 777это все.fbx" id="1_o5mh1"]
+[ext_resource type="PackedScene" uid="uid://c826leni6uo0r" path="res://scenes/player/player.tscn" id="2_h3btm"]
+[ext_resource type="PackedScene" uid="uid://cnkn6mvowvvra" path="res://assets/Door/door.tscn" id="3_h3btm"]
+[ext_resource type="PackedScene" uid="uid://bc0ljlpyj0imx" path="res://assets/Key/key_item.tscn" id="4_feotg"]
+[ext_resource type="Texture2D" uid="uid://ct06gyguf1jwe" path="res://assets/Key/key_sprited.png" id="5_xfeed"]
+[ext_resource type="PackedScene" uid="uid://8okdyf6awyqt" path="res://scripts/components/weapon_item.tscn" id="6_tlp0f"]
+[ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="7_37fit"]
+[ext_resource type="Texture2D" uid="uid://bp21nei05avpy" path="res://assets/weapons/sten/icon.webp" id="8_dcbb5"]
+[ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="9_jx458"]
+[ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="10_rprg8"]
+[ext_resource type="PackedScene" uid="uid://oksj4ewt4wt" path="res://scenes/enemies/enemy.tscn" id="11_d2ber"]
+[ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="11_tlp0f"]
+[ext_resource type="Resource" uid="uid://c2pkl702p14hl" path="res://scripts/enemies/sabrinakk.tres" id="12_vif25"]
+[ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="13_l4dew"]
+[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="14_k2sr0"]
+[ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="15_apc16"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5mh1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_h3btm"]
+sky_material = SubResource("ProceduralSkyMaterial_o5mh1")
+
+[sub_resource type="Environment" id="Environment_feotg"]
+background_mode = 2
+sky = SubResource("Sky_h3btm")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga66r"]
+size = Vector3(292.7471, 22.044922, 222.13338)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrjva"]
+size = Vector3(15.084049, 5.822632, 11.03333)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwtwk"]
+size = Vector3(2.6093867, 10.435425, 137.29428)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkm6f"]
+size = Vector3(2.9848022, 20.950317, 223.11047)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mrjva"]
+size = Vector3(1, 4.067383, 5.362549)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h3btm"]
+data = PackedVector3Array(-0.5, 2.0337, 2.6813, 0.5, 2.0337, 2.6813, -0.5, -2.0337, 2.6813, 0.5, 2.0337, 2.6813, 0.5, -2.0337, 2.6813, -0.5, -2.0337, 2.6813, 0.5, 2.0337, -2.6813, -0.5, 2.0337, -2.6813, 0.5, -2.0337, -2.6813, -0.5, 2.0337, -2.6813, -0.5, -2.0337, -2.6813, 0.5, -2.0337, -2.6813, 0.5, 2.0337, 2.6813, 0.5, 2.0337, -2.6813, 0.5, -2.0337, 2.6813, 0.5, 2.0337, -2.6813, 0.5, -2.0337, -2.6813, 0.5, -2.0337, 2.6813, -0.5, 2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, -2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, -2.0337, 2.6813, -0.5, -2.0337, -2.6813, 0.5, 2.0337, 2.6813, -0.5, 2.0337, 2.6813, 0.5, 2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, 2.0337, -2.6813, 0.5, 2.0337, -2.6813, -0.5, -2.0337, 2.6813, 0.5, -2.0337, 2.6813, -0.5, -2.0337, -2.6813, 0.5, -2.0337, 2.6813, 0.5, -2.0337, -2.6813, -0.5, -2.0337, -2.6813)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_feotg"]
+data = PackedVector3Array(-0.5, 2.0337, 2.6813, 0.5, 2.0337, 2.6813, -0.5, -2.0337, 2.6813, 0.5, 2.0337, 2.6813, 0.5, -2.0337, 2.6813, -0.5, -2.0337, 2.6813, 0.5, 2.0337, -2.6813, -0.5, 2.0337, -2.6813, 0.5, -2.0337, -2.6813, -0.5, 2.0337, -2.6813, -0.5, -2.0337, -2.6813, 0.5, -2.0337, -2.6813, 0.5, 2.0337, 2.6813, 0.5, 2.0337, -2.6813, 0.5, -2.0337, 2.6813, 0.5, 2.0337, -2.6813, 0.5, -2.0337, -2.6813, 0.5, -2.0337, 2.6813, -0.5, 2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, -2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, -2.0337, 2.6813, -0.5, -2.0337, -2.6813, 0.5, 2.0337, 2.6813, -0.5, 2.0337, 2.6813, 0.5, 2.0337, -2.6813, -0.5, 2.0337, 2.6813, -0.5, 2.0337, -2.6813, 0.5, 2.0337, -2.6813, -0.5, -2.0337, 2.6813, 0.5, -2.0337, 2.6813, -0.5, -2.0337, -2.6813, 0.5, -2.0337, 2.6813, 0.5, -2.0337, -2.6813, -0.5, -2.0337, -2.6813)
+
+[node name="Node3D" type="Node3D" unique_id=628819098]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1106430968]
+environment = SubResource("Environment_feotg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=973234519]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." unique_id=1368982742 instance=ExtResource("2_h3btm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -235.65967, 2.4111488, -28.947454)
+
+[node name="поездок 777это все" parent="." unique_id=1018836100 instance=ExtResource("1_o5mh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6307526e-05, 0, 0.46108007)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="поездок 777это все" unique_id=299246102]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=1505236095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.32997, -10.891694, -58.77048)
+shape = SubResource("BoxShape3D_ga66r")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=1662695804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.11685, 2.411316, -49.647625)
+shape = SubResource("BoxShape3D_mrjva")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=672056747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -208.11685, 2.411316, 6.467975)
+shape = SubResource("BoxShape3D_mrjva")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=4800065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.94923, 4.7177124, 46.053215)
+shape = SubResource("BoxShape3D_jwtwk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=1543129816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.94923, 4.7177124, -101.89248)
+shape = SubResource("BoxShape3D_jwtwk")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="поездок 777это все/StaticBody3D" unique_id=180832329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -244.99446, 4.414612, -60.23968)
+shape = SubResource("BoxShape3D_nkm6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="поездок 777это все" unique_id=1277335577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.62769, 1.5336914, -24.095922)
+mesh = SubResource("BoxMesh_mrjva")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="поездок 777это все/MeshInstance3D" unique_id=1528819601]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="поездок 777это все/MeshInstance3D/StaticBody3D" unique_id=1214465868]
+shape = SubResource("ConcavePolygonShape3D_h3btm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="поездок 777это все" unique_id=1415812858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.62769, 1.5336914, -31.455032)
+mesh = SubResource("BoxMesh_mrjva")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="поездок 777это все/MeshInstance3D2" unique_id=1055390328]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="поездок 777это все/MeshInstance3D2/StaticBody3D" unique_id=1924089773]
+shape = SubResource("ConcavePolygonShape3D_feotg")
+
+[node name="door" parent="." unique_id=187862479 instance=ExtResource("3_h3btm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -167.12234, 1.3641777, -27.315664)
+required_key = "ref"
+
+[node name="Area3D" parent="." unique_id=1530241403 instance=ExtResource("4_feotg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -184.9723, -0.28729722, -94.42734)
+icon = ExtResource("5_xfeed")
+
+[node name="Area3D2" parent="." unique_id=1833396603 instance=ExtResource("6_tlp0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.90744, -0.06091538, -29.477325)
+weapon = ExtResource("7_37fit")
+icon = ExtResource("8_dcbb5")
+
+[node name="Area3D3" parent="." unique_id=521727522 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.46007, 0.00011995435, -31.756378)
+data = ExtResource("10_rprg8")
+
+[node name="Area3D4" parent="." unique_id=1051016515 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.46007, 0.00011995435, -26.333302)
+data = ExtResource("10_rprg8")
+
+[node name="Area3D7" parent="." unique_id=574168143 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.46007, 0.00011995435, -2.5174255)
+data = ExtResource("10_rprg8")
+
+[node name="Area3D8" parent="." unique_id=309469969 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.11708, 0.089889914, -2.5174255)
+data = ExtResource("10_rprg8")
+
+[node name="Area3D9" parent="." unique_id=2092560917 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.17342, -0.08623776, 14.06222)
+data = ExtResource("11_tlp0f")
+
+[node name="Area3D10" parent="." unique_id=32968668 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.98444, 0.015369087, 15.602543)
+data = ExtResource("11_tlp0f")
+
+[node name="Area3D11" parent="." unique_id=75241462 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.83412, 0.17821279, 16.093927)
+data = ExtResource("11_tlp0f")
+
+[node name="Area3D5" parent="." unique_id=284043174 instance=ExtResource("9_jx458")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200.07967, 0.00011995435, -29.256517)
+data = ExtResource("10_rprg8")
+
+[node name="CharacterBody3D2" parent="." unique_id=1238870871 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -224.39578, -0.047569275, -31.657429)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D14" parent="." unique_id=1376906818 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -221.33817, -0.047569275, -40.683754)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D15" parent="." unique_id=1706644744 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -209.65674, -0.3993578, -31.401045)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D16" parent="." unique_id=465013548 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -237.4052, 0.040379524, -53.092247)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D17" parent="." unique_id=83526900 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -237.4052, 0.040379524, -9.391148)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D18" parent="." unique_id=366027186 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -223.656, 0.040379524, -9.391148)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D19" parent="." unique_id=1020954143 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -214.08937, 0.040379524, -6.2457)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D20" parent="." unique_id=1806674647 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -214.08937, 0.040379524, -57.90136)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D21" parent="." unique_id=1928341870 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.5, -191.07433, 0.040379524, -85.256134)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D23" parent="." unique_id=772444151 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -184.65932, 0.040379524, -93.51936)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D25" parent="." unique_id=1981673453 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -181.70036, 0.040379524, -93.51936)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D26" parent="." unique_id=1830442920 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -188.12158, 0.040379524, -93.51936)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D24" parent="." unique_id=2058859150 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -181.18202, 0.040379524, -87.71905)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D22" parent="." unique_id=1020881233 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.5, -191.07433, -2.6328115, -85.256134)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D3" parent="." unique_id=424146861 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -224.39578, -0.047569275, -28.899746)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D4" parent="." unique_id=1604063469 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -224.39578, -0.047569275, -25.064709)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D5" parent="." unique_id=2046331662 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -195.98846, -0.047569275, -39.37941)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D6" parent="." unique_id=104681977 instance=ExtResource("11_d2ber")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -235.82813, -0.047569275, -57.187885)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D7" parent="." unique_id=501081109 instance=ExtResource("11_d2ber")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -231.9931, -0.047569275, -57.18788)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D8" parent="." unique_id=317667980 instance=ExtResource("11_d2ber")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -227.01631, -0.047569275, -57.187885)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D9" parent="." unique_id=2140451707 instance=ExtResource("11_d2ber")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -224.25864, -0.047569275, -57.18788)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D10" parent="." unique_id=1467850130 instance=ExtResource("11_d2ber")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -220.4236, -0.047569275, -57.187885)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D27" parent="." unique_id=464947856 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -220.2498, -0.047569275, 11.627784)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D28" parent="." unique_id=862347002 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -223.95415, -0.047569275, 12.6203575)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D29" parent="." unique_id=491768716 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -228.76137, -0.047569275, 13.90845)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D30" parent="." unique_id=861490158 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -231.42508, -0.047569275, 14.622185)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D31" parent="." unique_id=625564450 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -235.12944, -0.047569275, 15.61477)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D32" parent="." unique_id=910188618 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.49999988, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999988, -210.43124, -0.047569275, -79.108925)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D33" parent="." unique_id=1783712678 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.49999988, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999988, -208.51373, -0.047569275, -82.430145)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D34" parent="." unique_id=1143515394 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.49999988, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999988, -206.02533, -0.047569275, -86.74018)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D35" parent="." unique_id=1681302077 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.49999988, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999988, -204.6465, -0.047569275, -89.1284)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D36" parent="." unique_id=1138726068 instance=ExtResource("11_d2ber")]
+transform = Transform3D(0.49999988, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999988, -202.72897, -0.047569275, -92.449646)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D37" parent="." unique_id=1487562898 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -173.60573, -0.047569275, -26.532032)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D38" parent="." unique_id=2007756900 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -175.52324, -0.047569275, -23.210804)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D39" parent="." unique_id=1052568569 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -178.01164, -0.047569275, -18.900778)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D40" parent="." unique_id=1103692572 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -179.39047, -0.047569275, -16.512564)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D41" parent="." unique_id=419251043 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -181.308, -0.047569275, -13.191305)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D42" parent="." unique_id=1772603243 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -179.19775, -0.047569275, 20.205791)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D43" parent="." unique_id=511021620 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -181.11526, -0.047569275, 23.52702)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D44" parent="." unique_id=1277499922 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -183.60367, -0.047569275, 27.837046)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D45" parent="." unique_id=1540086007 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -184.9825, -0.047569275, 30.22526)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D46" parent="." unique_id=356229507 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.5, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.5, -186.90002, -0.047569275, 33.546516)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D47" parent="." unique_id=593146525 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.86602545, -197.71486, -0.047569275, 31.030407)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D48" parent="." unique_id=1594934209 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.86602545, -201.03609, -0.047569275, 29.112896)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D49" parent="." unique_id=2087792543 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.86602545, -205.34612, -0.047569275, 26.624493)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D50" parent="." unique_id=1709048951 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.86602545, -207.73433, -0.047569275, 25.245663)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D51" parent="." unique_id=1883208181 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86602545, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.86602545, -211.05559, -0.047569275, 23.328136)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D11" parent="." unique_id=1362152655 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86999625, 0, -0.4930583, 0, 1, 0, 0.4930583, 0, -0.86999625, -219.761, -0.047569275, -7.6177197)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D12" parent="." unique_id=1436662470 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86999625, 0, -0.4930583, 0, 1, 0, 0.4930583, 0, -0.86999625, -222.16019, -0.047569275, -6.2580214)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="CharacterBody3D13" parent="." unique_id=679518789 instance=ExtResource("11_d2ber")]
+transform = Transform3D(-0.86999625, 0, -0.4930583, 0, 1, 0, 0.4930583, 0, -0.86999625, -225.49664, -0.047569275, -4.367124)
+data = ExtResource("12_vif25")
+health_pickup_scene = ExtResource("13_l4dew")
+ammo_pickup_scene = ExtResource("9_jx458")
+
+[node name="Area3D6" parent="." unique_id=1084762410 instance=ExtResource("6_tlp0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -189.24893, 0.13126686, 14.567645)
+weapon = ExtResource("14_k2sr0")
+icon = ExtResource("15_apc16")

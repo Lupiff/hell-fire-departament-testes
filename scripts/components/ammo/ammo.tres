@@ -9,5 +9,4 @@ type = "ammo"
 amount = 30
 icon = ExtResource("1_x1b14")
 glow_color = Color(0.9281934, 0.7791919, 0.31594998, 1)
-ammo_type = "MP-40"
 metadata/_custom_type_script = "uid://dcoiwlwqv15hj"
