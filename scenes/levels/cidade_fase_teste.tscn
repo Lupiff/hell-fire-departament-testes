@@ -56,7 +56,7 @@ data = PackedVector3Array(-0.5, 2.0337, 2.6813, 0.5, 2.0337, 2.6813, -0.5, -2.03
 environment = SubResource("Environment_feotg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=973234519]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 54.984512, 0)
 shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=1368982742 instance=ExtResource("2_h3btm")]

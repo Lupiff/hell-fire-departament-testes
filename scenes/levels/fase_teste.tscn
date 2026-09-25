@@ -24,6 +24,18 @@
 [ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="22_3dr3n"]
 [ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="23_epekq"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_epekq"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2jg6q"]
+sky_material = SubResource("ProceduralSkyMaterial_epekq")
+
+[sub_resource type="Environment" id="Environment_ulpwq"]
+background_mode = 2
+sky = SubResource("Sky_2jg6q")
+glow_enabled = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ga66r"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fdywb"]
@@ -87,6 +99,13 @@ size = Vector3(17.078705, 9.518555, 11.388306)
 size = Vector3(7.430786, 7.4848633, 5.527405)
 
 [node name="Node3D" type="Node3D" unique_id=1375350301]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1504264538]
+environment = SubResource("Environment_ulpwq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2121312986]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1251489708]
 transform = Transform3D(1418.149, 0, 0, 0, 1418.149, 0, 0, 0, 1418.149, 0, 0, 0)

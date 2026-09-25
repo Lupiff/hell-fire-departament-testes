@@ -209,6 +209,6 @@ func _get_floor_position() -> Vector3:
 
 	var result := space_state.intersect_ray(query)
 	if result:
-		return result.position + Vector3(0, 0.10, 0) 
+		return result.position + Vector3(0, 0.0, 0) # mexer na altura do item q dropa
 
 	return global_position   # fallback: se não achar chão, usa a posição original
