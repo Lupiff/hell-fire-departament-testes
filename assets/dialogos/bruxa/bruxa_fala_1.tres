@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://c3rn3vddjj2mt"]
+
+[ext_resource type="Script" uid="uid://cosho7ac7akbu" path="res://dialogue_line.gd" id="1_nuphi"]
+[ext_resource type="Texture2D" uid="uid://df57ka3lhvqbv" path="res://assets/npc/bruxinha_dialogo.png" id="1_xgp27"]
+
+[resource]
+script = ExtResource("1_nuphi")
+speaker_name = "Bruxa kk"
+portrait = ExtResource("1_xgp27")
+text = "faaaaala fi"
+metadata/_custom_type_script = "uid://cosho7ac7akbu"

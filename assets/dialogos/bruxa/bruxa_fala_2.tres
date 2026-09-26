@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://w0iwcftkvm32"]
+
+[ext_resource type="Script" uid="uid://cosho7ac7akbu" path="res://dialogue_line.gd" id="1_270xd"]
+[ext_resource type="Texture2D" uid="uid://df57ka3lhvqbv" path="res://assets/npc/bruxinha_dialogo.png" id="1_atbpo"]
+
+[resource]
+script = ExtResource("1_270xd")
+speaker_name = "Bruxa kk"
+portrait = ExtResource("1_atbpo")
+text = "é so um teste essa bomba tmnc no cu vascooooo"
+metadata/_custom_type_script = "uid://cosho7ac7akbu"

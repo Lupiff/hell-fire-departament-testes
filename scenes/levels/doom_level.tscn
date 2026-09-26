@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c826leni6uo0r" path="res://scenes/player/player.tscn" id="2_5mmt4"]
 [ext_resource type="PackedScene" uid="uid://bc0ljlpyj0imx" path="res://assets/Key/key_item.tscn" id="3_f46uy"]
 [ext_resource type="Texture2D" uid="uid://ct06gyguf1jwe" path="res://assets/Key/key_sprited.png" id="4_a1i38"]
+[ext_resource type="PackedScene" uid="uid://pqpq7hn5p8do" path="res://scenes/npc/npc.tscn" id="6_f46uy"]
+[ext_resource type="Resource" uid="uid://bqcgbvugcii4y" path="res://assets/dialogos/bruxa_dialogo_teste.tres" id="7_a1i38"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_akwig"]
 data = PackedVector3Array(-1552, 2432, 0, -1552, 2560, 71.9993, -1552, 2432, 71.9993, -1552, 2432, 0, -1552, 2560, 0, -1552, 2560, 71.9993, -1536, 2560, 0, -1536, 2432, 88, -1536, 2560, 88, -1536, 2560, 0, -1536, 2432, 0, -1536, 2432, 88)
@@ -490,5 +492,9 @@ icon = ExtResource("4_a1i38")
 
 [node name="CharacterBody3D" parent="." unique_id=1368982742 instance=ExtResource("2_5mmt4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.047883, 7.6548367, 3069.727)
+
+[node name="NPC" parent="." unique_id=575067146 instance=ExtResource("6_f46uy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.443179, 6.51248, 3074.0457)
+dialogue = ExtResource("7_a1i38")
 
 [editable path="Sketchfab_Scene"]

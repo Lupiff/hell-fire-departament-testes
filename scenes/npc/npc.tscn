@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://pqpq7hn5p8do"]
+
+[ext_resource type="Script" uid="uid://dkmd6a7ptrwuy" path="res://npc.gd" id="1_sspvn"]
+[ext_resource type="Texture2D" uid="uid://o4w3kwxwvcv6" path="res://assets/npc/bruxinha_3d.png" id="2_pcwmf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o8r50"]
+
+[node name="NPC" type="Area3D" unique_id=575067146]
+script = ExtResource("1_sspvn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=988675051]
+shape = SubResource("BoxShape3D_o8r50")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=464797652]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, 0, 0, 0)
+billboard = 2
+texture = ExtResource("2_pcwmf")

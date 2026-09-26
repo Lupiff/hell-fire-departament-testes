@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cumvefdphi6sf"]
+
+[ext_resource type="Texture2D" uid="uid://rxy2b2hschlc" path="res://assets/npc/Larabombeirapng.png" id="1_76buk"]
+[ext_resource type="Script" uid="uid://cosho7ac7akbu" path="res://dialogue_line.gd" id="1_d6twb"]
+
+[resource]
+script = ExtResource("1_d6twb")
+speaker = 1
+speaker_name = "Lara"
+portrait = ExtResource("1_76buk")
+text = "eita"
+metadata/_custom_type_script = "uid://cosho7ac7akbu"
