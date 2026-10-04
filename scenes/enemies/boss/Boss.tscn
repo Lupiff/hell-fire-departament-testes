@@ -35,7 +35,7 @@ animations = [{
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=725881470]
 script = ExtResource("1_ethqa")
-max_health = 2500
+max_health = 4450
 phase1_damage = 40
 detection_range = 40.0
 move_speed = 8.0
