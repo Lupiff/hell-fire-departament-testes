@@ -5,10 +5,9 @@ class_name Boss
 @export var phase1_damage: int = 8
 @export var phase1_fire_rate: float = 1.0
 @export var phase1_range: float = 15.0
-@export var detection_range: float = 20.0     # só persegue dentro desse alcance
+@export var detection_range: float = 20.0
 @export var move_speed: float = 4.0
-@export var close_range: float = 5.0          # distância "bem perto" pra disparos em sequência
-@export var prediction_lead: float = 0.15   # 0 = sem previsão, 1 = previsão total do tempo de windup, serve pra ele n ficar burro na hr de atirar na teoria
+@export var close_range: float = 5.0
 
 const SHOOT_DAMAGE_FRAME := 1
 const GRAVITY := 20.0
@@ -56,7 +55,7 @@ func _get_distance_to_player() -> float:
 		var body := ray_cast.get_collider()
 		if body == player:
 			return global_position.distance_to(player.global_position)
-		return INF   # tem parede no meio
+		return INF
 
 	return global_position.distance_to(player.global_position)
 
@@ -76,7 +75,6 @@ func _phase1_behavior(_delta: float) -> void:
 		velocity.z = 0.0
 		return
 
-	# se não tá "bem perto", continua andando na direção do player mesmo entre tiros
 	if dist > close_range:
 		var direction := (player.global_position - global_position)
 		direction.y = 0
@@ -109,15 +107,29 @@ func _fire_pistol() -> void:
 			result.collider.take_damage(phase1_damage)
 
 	if sprite.animation == &"shoot":
-		await sprite.animation_finished
+		await _wait_for_animation_finished_or_timeout(1.0)
+
+	if not is_inside_tree():
+		return
 
 	is_firing = false
-	sprite.play(&"idle")   # <- garante que volta pro idle depois de atirar
+	sprite.play(&"idle")
 
-	if sprite.animation == &"shoot":
-		await sprite.animation_finished   # só libera o movimento quando a animação acabar de verdade
+func _wait_for_animation_finished_or_timeout(max_wait: float) -> void:
+	var state := {"finished": false}
+	var on_finished := func(): state.finished = true
+	sprite.animation_finished.connect(on_finished, CONNECT_ONE_SHOT)
 
-	is_firing = false
+	var elapsed := 0.0
+	while not state.finished and elapsed < max_wait:
+		await get_tree().process_frame
+		if not is_inside_tree():
+			return
+		elapsed += get_process_delta_time()
+
+	if sprite.animation_finished.is_connected(on_finished):
+		sprite.animation_finished.disconnect(on_finished)
+
 func _wait_for_frame(target_frame: int) -> void:
 	while sprite.animation == &"shoot" and sprite.frame < target_frame:
 		await sprite.frame_changed

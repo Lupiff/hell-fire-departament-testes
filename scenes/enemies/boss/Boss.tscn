@@ -48,7 +48,7 @@ transform = Transform3D(0.33507547, 0, 0, 0, 0.33507547, 0, 0, 0, 1, 0, -0.02892
 billboard = 2
 shaded = true
 sprite_frames = SubResource("SpriteFrames_ga66r")
-animation = &"idle"
+animation = &"shoot"
 
 [node name="Health" type="Node" parent="." unique_id=84808265]
 script = ExtResource("2_ethqa")

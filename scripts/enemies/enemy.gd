@@ -81,8 +81,20 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
-	if camera:
-		health_bar.look_at(camera.global_position, Vector3.UP, true)
+	if not camera:
+		return
+
+	var to_camera := camera.global_position - health_bar.global_position
+	if to_camera.length() < 0.01:
+		return
+
+	# evita o caso colinear: se a direção pra câmera estiver quase alinhada com "up",
+	# usa um vetor "up" alternativo só nesse frame
+	var up := Vector3.UP
+	if absf(to_camera.normalized().dot(up)) > 0.999:
+		up = Vector3.FORWARD
+
+	health_bar.look_at(camera.global_position, up, true)
 
 
 func _update_ai(_delta: float) -> void:
