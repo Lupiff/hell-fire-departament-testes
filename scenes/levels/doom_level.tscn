@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="18_m77kx"]
 [ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="19_e1ua7"]
 [ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="20_ottwj"]
+[ext_resource type="AudioStream" uid="uid://inpxsbi6cv3v" path="res://assets/audio/music/fase_teste_doom/musica_maneira_trila_sonora.mp3" id="21_kivk7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1i38"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -885,5 +886,11 @@ data = ExtResource("20_ottwj")
 [node name="Area3D11" parent="." unique_id=1610130275 instance=ExtResource("14_shn30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184701, 5.200481, -2.165015)
 data = ExtResource("20_ottwj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1836035698]
+process_mode = 3
+stream = ExtResource("21_kivk7")
+volume_db = -6.36
+autoplay = true
 
 [editable path="Sketchfab_Scene"]

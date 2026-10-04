@@ -39,7 +39,6 @@ max_health = 4450
 phase1_damage = 40
 detection_range = 40.0
 move_speed = 8.0
-prediction_lead = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1336863098]
 shape = SubResource("CapsuleShape3D_mrjva")
