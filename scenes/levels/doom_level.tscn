@@ -7,6 +7,31 @@
 [ext_resource type="Texture2D" uid="uid://ct06gyguf1jwe" path="res://assets/Key/key_sprited.png" id="4_a1i38"]
 [ext_resource type="PackedScene" uid="uid://pqpq7hn5p8do" path="res://scenes/npc/npc.tscn" id="6_f46uy"]
 [ext_resource type="Resource" uid="uid://bqcgbvugcii4y" path="res://assets/dialogos/bruxa_dialogo_teste.tres" id="7_a1i38"]
+[ext_resource type="PackedScene" uid="uid://duxdkjiwnqckw" path="res://scenes/enemies/boss/Boss.tscn" id="8_8qvql"]
+[ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="8_yyw3y"]
+[ext_resource type="Script" uid="uid://byo0m4hppopck" path="res://scripts/enemies/boss_arena_trigger.gd" id="10_ham6t"]
+[ext_resource type="PackedScene" uid="uid://oksj4ewt4wt" path="res://scenes/enemies/enemy.tscn" id="11_1gno8"]
+[ext_resource type="Resource" uid="uid://c2pkl702p14hl" path="res://scripts/enemies/sabrinakk.tres" id="12_iskdl"]
+[ext_resource type="PackedScene" uid="uid://cqyi8fbvkg6d4" path="res://scenes/enemies/boss/BossHealthBar.tscn" id="13_aied2"]
+[ext_resource type="PackedScene" uid="uid://bgy8lh04vs08j" path="res://scripts/components/ammo_item.tscn" id="14_shn30"]
+[ext_resource type="Resource" uid="uid://bhw8c7io6gi68" path="res://scripts/components/ammo/mp40_ammo.tres" id="15_ottwj"]
+[ext_resource type="PackedScene" uid="uid://crshr3mhdvaqb" path="res://scripts/components/health_item.tscn" id="16_kivk7"]
+[ext_resource type="PackedScene" uid="uid://8okdyf6awyqt" path="res://scripts/components/weapon_item.tscn" id="17_8475m"]
+[ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="18_m77kx"]
+[ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="19_e1ua7"]
+[ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="20_ottwj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1i38"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8qvql"]
+sky_material = SubResource("ProceduralSkyMaterial_a1i38")
+
+[sub_resource type="Environment" id="Environment_yyw3y"]
+background_mode = 2
+sky = SubResource("Sky_8qvql")
+glow_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_akwig"]
 data = PackedVector3Array(-1552, 2432, 0, -1552, 2560, 71.9993, -1552, 2432, 71.9993, -1552, 2432, 0, -1552, 2560, 0, -1552, 2560, 71.9993, -1536, 2560, 0, -1536, 2432, 88, -1536, 2560, 88, -1536, 2560, 0, -1536, 2432, 0, -1536, 2432, 88)
@@ -180,12 +205,25 @@ data = PackedVector3Array(-1792, 2240, 95.9991, -1984.0022, 2303.9834, 95.9991, 
 data = PackedVector3Array(-2240, 4096, -24, -2368, 3967.9995, -24, -2240, 3967.9995, -24, -2240, 4096, -24, -2368, 4096, -24, -2368, 3967.9995, -24, -3200, 3744, 32, -3328, 3967.9995, 32, -3328, 3744, 32, -3200, 3744, 32, -3200, 3967.9995, 32, -3328, 3967.9995, 32)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftgux"]
-size = Vector3(285.86176, 64.13727, 12.07373)
+size = Vector3(264.50995, 64.96931, 12.07373)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga66r"]
+size = Vector3(29.956116, 0.001, 2.2140808)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01wgd"]
+size = Vector3(52.02688, 12.722778, 36.587463)
 
 [node name="Node3D" type="Node3D" unique_id=159665202]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=403252000]
+environment = SubResource("Environment_yyw3y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=44938057]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, -3072.294)
+shadow_enabled = true
+
 [node name="Sketchfab_Scene" parent="." unique_id=1038014777 instance=ExtResource("1_akwig")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.9985714, 0, 3231.2373)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -1.9985714, 0, 158.94342)
 
 [node name="Object_2" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="0" unique_id=981341619]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -960.28516, 2.1322614e-13)
@@ -195,7 +233,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -960.28516, 2.1322614e-13)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles/Object_2/StaticBody3D" unique_id=1874970956]
 shape = SubResource("ConcavePolygonShape3D_akwig")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles/Object_3" parent_id_path=PackedInt32Array(1038014777, 1584820181) index="0" unique_id=1460232615]
+[node name="Object_3" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="1" unique_id=1584820181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1108.5846, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles/Object_3" index="0" unique_id=1460232615]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles/Object_3/StaticBody3D" unique_id=411882337]
 shape = SubResource("ConcavePolygonShape3D_5mmt4")
@@ -479,22 +520,370 @@ shape = SubResource("ConcavePolygonShape3D_qklyo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3305.2227, -7.3390686e-13)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles/StaticBody3D" unique_id=26732903]
-transform = Transform3D(0.91485554, -8.9657485e-17, -0.4037814, 8.965749e-17, 1, -1.8905855e-17, 0.4037814, -1.8905855e-17, 0.91485554, -252.73859, -66.99219, 40.982056)
+transform = Transform3D(0.89414394, -9.942705e-17, -0.44777966, 9.942706e-17, 1, -2.3504754e-17, 0.44777966, -2.3504728e-17, 0.89414394, -243.96887, -73.229645, 39.624187)
 shape = SubResource("BoxShape3D_ftgux")
 
 [node name="door" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="58" unique_id=187862479 instance=ExtResource("2_0cxe5")]
 transform = Transform3D(-3.2086455e-06, 0, -19.999998, -73.40524, 1.6299238e-14, 8.7422785e-07, 1.6299238e-14, 73.40524, 7.058019e-23, -1543.4551, 2499.832, 29.999104)
 required_key = "red"
 
-[node name="Area3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="59" unique_id=1530241403 instance=ExtResource("3_f46uy")]
+[node name="door2" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="59" unique_id=1465237857 instance=ExtResource("2_0cxe5")]
+transform = Transform3D(-73.40524, 0, 1.7484557e-06, 6.417291e-06, 1.6299238e-14, 19.999998, -3.6613365e-22, 73.40524, -4.4408913e-15, -2995.2056, 4013.772, 29.999104)
+required_key = "red"
+
+[node name="Area3D" parent="Sketchfab_Scene/Sketchfab_model/doom_E1M1_obj_cleaner_materialmerger_gles" parent_id_path=PackedInt32Array(1038014777, 358024134) index="60" unique_id=1530241403 instance=ExtResource("3_f46uy")]
 transform = Transform3D(20, 0, 0, 0, 4.440892e-15, -20, 0, 20, 4.440892e-15, -1110.6465, 3212.0938, -15.487024)
 icon = ExtResource("4_a1i38")
 
 [node name="CharacterBody3D" parent="." unique_id=1368982742 instance=ExtResource("2_5mmt4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.047883, 7.6548367, 3069.727)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.047883, 7.6548367, -2.5668335)
 
 [node name="NPC" parent="." unique_id=575067146 instance=ExtResource("6_f46uy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.443179, 6.51248, 3074.0457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.443179, 6.591706, 1.75177)
 dialogue = ExtResource("7_a1i38")
+weapon_reward = ExtResource("8_yyw3y")
+
+[node name="CharacterBody3D2" parent="." unique_id=725881470 instance=ExtResource("8_8qvql")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -114, -0.1141361, -8.36908)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=961465716]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1229698791]
+transform = Transform3D(1, 0, 0, 0, 0.7944885, 0.60727924, 0, -0.60727924, 0.7944885, -93.1656, -3.4714606, 2.8628771)
+shape = SubResource("BoxShape3D_ga66r")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1484380725]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=2096239104]
+transform = Transform3D(-1, 5.3090037e-08, -6.945639e-08, 0, 0.7944885, 0.60727924, 8.742278e-08, 0.60727924, -0.7944885, -93.1656, -3.4379942, -12.307303)
+shape = SubResource("BoxShape3D_ga66r")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1717623429]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1018540295]
+transform = Transform3D(-0.98604476, 0.10110017, -0.13226686, 0, 0.7944885, 0.60727924, 0.16648053, 0.59880453, -0.7834012, -93.1656, -3.4379942, -12.307303)
+shape = SubResource("BoxShape3D_ga66r")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=1107139633]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=1110575220]
+transform = Transform3D(-0.9642872, -0.16084325, 0.21042728, 4.9615063e-09, 0.7944885, 0.60727924, -0.26485884, 0.58559173, -0.7661152, -93.1656, -3.4379942, -12.876876)
+shape = SubResource("BoxShape3D_ga66r")
+
+[node name="Spawnpoint" type="Marker3D" parent="." unique_id=1073697579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.63281, -2.7941244, -0.9025707)
+
+[node name="Spawnpoint3" type="Marker3D" parent="." unique_id=1116907697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.16299, -2.7941244, -7.925499)
+
+[node name="Spawnpoint2" type="Marker3D" parent="." unique_id=1678154879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.63281, -2.7941244, -13.992236)
+
+[node name="Spawnpoint4" type="Marker3D" parent="." unique_id=1459186149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.746254, -2.7941244, -13.992236)
+
+[node name="Spawnpoint5" type="Marker3D" parent="." unique_id=1467371630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.746254, -2.7941244, -2.9787092)
+
+[node name="Spawnpoint6" type="Marker3D" parent="." unique_id=1240615032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.6369, -2.7941244, 9.767237)
+
+[node name="Spawnpoint7" type="Marker3D" parent="." unique_id=1835824760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.84225, -2.7941244, 9.767237)
+
+[node name="Spawnpoint8" type="Marker3D" parent="." unique_id=1881672964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.6369, -2.7941244, -19.797007)
+
+[node name="Spawnpoint9" type="Marker3D" parent="." unique_id=1898764148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.84225, -2.7941244, -19.797007)
+
+[node name="Spawnpoint10" type="Marker3D" parent="." unique_id=1183011482]
+transform = Transform3D(0.1368285, 0, -0.99059474, 0, 1, 0, 0.99059474, 0, 0.1368285, -76.695946, -2.7941244, -10.682885)
+
+[node name="Spawnpoint11" type="Marker3D" parent="." unique_id=1032511660]
+transform = Transform3D(0.1368285, 0, -0.99059474, 0, 1, 0, 0.99059474, 0, 0.1368285, -75.0821, -2.7941244, 1.0008383)
+
+[node name="Spawnpoint12" type="Marker3D" parent="." unique_id=1777374457]
+transform = Transform3D(0.9648158, 0, -0.26292652, 0, 1, 0, 0.26292652, 0, 0.9648158, -98.1646, -2.7941244, -20.285421)
+
+[node name="Spawnpoint13" type="Marker3D" parent="." unique_id=1953831447]
+transform = Transform3D(0.9648158, 0, -0.26292652, 0, 1, 0, 0.26292652, 0, 0.9648158, -86.78493, -2.7941244, -17.184294)
+
+[node name="Spawnpoint14" type="Marker3D" parent="." unique_id=1159726475]
+transform = Transform3D(-0.9365169, 0, 0.35062236, 0, 1, 0, -0.35062236, 0, -0.9365169, -86.16002, -2.7941244, 10.682344)
+
+[node name="Spawnpoint15" type="Marker3D" parent="." unique_id=2006110581]
+transform = Transform3D(-0.9365169, 0, 0.35062236, 0, 1, 0, -0.35062236, 0, -0.9365169, -97.20592, -2.7941244, 6.546873)
+
+[node name="BossArenaTrigger" type="Area3D" parent="." unique_id=1645323755 node_paths=PackedStringArray("spawn_points", "boss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.28386, 0, 0)
+script = ExtResource("10_ham6t")
+enemy_scene = ExtResource("11_1gno8")
+enemy_data = ExtResource("12_iskdl")
+spawn_points = [NodePath("../Spawnpoint"), NodePath("../Spawnpoint3"), NodePath("../Spawnpoint2"), NodePath("../Spawnpoint4"), NodePath("../Spawnpoint5"), NodePath("../Spawnpoint6"), NodePath("../Spawnpoint7"), NodePath("../Spawnpoint8"), NodePath("../Spawnpoint9"), NodePath("../Spawnpoint10"), NodePath("../Spawnpoint11"), NodePath("../Spawnpoint12"), NodePath("../Spawnpoint13"), NodePath("../Spawnpoint14"), NodePath("../Spawnpoint15")]
+boss = NodePath("../CharacterBody3D2")
+boss_health_bar_scene = ExtResource("13_aied2")
+boss_display_name = "BOSS MAFIOSO INSANO"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BossArenaTrigger" unique_id=192552769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.754532, 1.8253784, -4.99704)
+shape = SubResource("BoxShape3D_01wgd")
+
+[node name="CharacterBody3D3" parent="." unique_id=1238870871 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.83673, 0.67230546, 2.0584373)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D4" parent="." unique_id=2084462154 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.83673, 0.67230546, -6.651184)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D5" parent="." unique_id=2065038378 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -43.90747, 0.67230546, -3.8992994)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D6" parent="." unique_id=1630498470 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -43.90747, 0.67230546, -1.6326456)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D13" parent="." unique_id=2030959890 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -50.863346, 0.26820147, -2.7470207)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D7" parent="." unique_id=1410942839 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -43.90747, 0.67230546, 7.872918)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D8" parent="." unique_id=870484183 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -43.90747, 0.67230546, -13.13324)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D9" parent="." unique_id=762171976 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.55224, 0.67230546, 7.872918)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D10" parent="." unique_id=1768353693 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -53.55224, 0.67230546, -13.13324)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D11" parent="." unique_id=1074372382 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -62.019276, 0.67230546, 7.872918)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D12" parent="." unique_id=2094401084 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -62.019276, 0.67230546, -13.13324)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D14" parent="." unique_id=847227891 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.9436429, 0, -0.33096534, 0, 1, 0, 0.33096534, 0, 0.9436429, -67.54855, 0.67230546, 24.831066)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D15" parent="." unique_id=754727344 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.22260985, 0, -0.97490764, 0, 1, 0, 0.97490764, 0, -0.22260985, -97.09021, 0.67230546, 27.016462)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D16" parent="." unique_id=2055728566 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -97.09021, 0.67230546, 44.922676)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D17" parent="." unique_id=1630790586 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -102.331055, 0.67230546, 43.387573)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D18" parent="." unique_id=322297339 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -109.22755, 0.67230546, 47.824535)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D19" parent="." unique_id=1566827447 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -122.48, 0.67230546, 42.411877)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D20" parent="." unique_id=420816391 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -122.48, 0.67230546, 37.451645)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D21" parent="." unique_id=1777811423 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -122.48, 0.67230546, 31.661716)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D22" parent="." unique_id=1634658365 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -88.62467, 0.67230546, 27.023151)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D23" parent="." unique_id=1116459463 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -148.9389, -0.070730746, 6.8375015)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D24" parent="." unique_id=946264792 instance=ExtResource("11_1gno8")]
+transform = Transform3D(0.44023675, 0, -0.89788175, 0, 1, 0, 0.89788175, 0, 0.44023675, -157.07814, -0.070730746, 6.8375015)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D25" parent="." unique_id=1824710632 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -153.6204, -0.070730746, -23.552162)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D26" parent="." unique_id=1966098747 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -151.14116, -0.070730746, -23.552162)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D27" parent="." unique_id=469374524 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -153.6204, -0.070730746, -30.750576)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D28" parent="." unique_id=1932989634 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -151.14116, -0.070730746, -30.750576)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D29" parent="." unique_id=717620428 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -153.6204, -0.070730746, -27.674042)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D30" parent="." unique_id=463927810 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.9302478, 0, -0.366932, 0, 1, 0, 0.366932, 0, -0.9302478, -151.14116, -0.070730746, -27.674042)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D31" parent="." unique_id=1676871206 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -151.14116, -0.070730746, -50.27668)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D32" parent="." unique_id=339207627 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -153.93204, -0.070730746, -48.23314)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D33" parent="." unique_id=1331667232 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -155.6306, -0.070730746, -52.63018)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D34" parent="." unique_id=2097035212 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -155.6306, -0.070730746, -64.97052)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D35" parent="." unique_id=1927195298 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -159.85304, -0.070730746, -62.36615)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D36" parent="." unique_id=2105058956 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -144.7678, -0.070730746, -62.36615)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D37" parent="." unique_id=1626025059 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -145.26373, -0.070730746, -64.02489)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="CharacterBody3D38" parent="." unique_id=1270796794 instance=ExtResource("11_1gno8")]
+transform = Transform3D(-0.99999756, 0, 0.002223134, 0, 1, 0, -0.002223134, 0, -0.99999756, -151.94318, -0.070730746, -67.01915)
+data = ExtResource("12_iskdl")
+health_pickup_scene = ExtResource("16_kivk7")
+ammo_pickup_scene = ExtResource("14_shn30")
+
+[node name="Area3D" parent="." unique_id=832771831 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.05217, -1.1533159, -51.635677)
+data = ExtResource("15_ottwj")
+
+[node name="Area3D2" parent="." unique_id=1706235498 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.71765, -1.1533159, -51.635677)
+data = ExtResource("15_ottwj")
+
+[node name="Area3D3" parent="." unique_id=108173481 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.89001, -1.1533159, -49.94827)
+data = ExtResource("15_ottwj")
+
+[node name="Area3D4" parent="." unique_id=1811340952 instance=ExtResource("16_kivk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.43987, -1.1088123, -51.078613)
+
+[node name="Area3D5" parent="." unique_id=1876226353 instance=ExtResource("16_kivk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.43987, -1.1088123, -52.96063)
+
+[node name="Area3D7" parent="." unique_id=597383301 instance=ExtResource("16_kivk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.67424, -1.1088123, -52.353813)
+
+[node name="Area3D8" parent="." unique_id=11972308 instance=ExtResource("16_kivk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.97993, -1.1088123, -52.353813)
+
+[node name="Area3D6" parent="." unique_id=2009567006 instance=ExtResource("17_8475m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.50217, -1.1995274, -70.531006)
+weapon = ExtResource("18_m77kx")
+icon = ExtResource("19_e1ua7")
+
+[node name="Area3D9" parent="." unique_id=657069631 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184701, 5.200481, -0.7912044)
+data = ExtResource("20_ottwj")
+
+[node name="Area3D10" parent="." unique_id=1570515388 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184701, 5.200481, -3.6812108)
+data = ExtResource("20_ottwj")
+
+[node name="Area3D11" parent="." unique_id=1610130275 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184701, 5.200481, -2.165015)
+data = ExtResource("20_ottwj")
 
 [editable path="Sketchfab_Scene"]

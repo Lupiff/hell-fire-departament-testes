@@ -172,6 +172,12 @@ func reload() -> void:
 	is_reloading = true
 	reload_cooldown = data.reload_time
 	_play_animation(&"reload")
+	_play_reload_sound(data)
+	
+func _play_reload_sound(data: WeaponData) -> void:
+	if data.reload_sound:
+		fire_audio.stream = data.reload_sound
+		fire_audio.play()
 
 func _finish_reload() -> void:
 	var data := weapons[current_index]

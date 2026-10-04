@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cqyi8fbvkg6d4"]
+
+[ext_resource type="Script" uid="uid://b1kq53328kmjc" path="res://scenes/enemies/boss/boss_health_bar.gd" id="1_m54h3"]
+
+[node name="BossHealthBar" type="CanvasLayer" unique_id=389943584]
+script = ExtResource("1_m54h3")
+
+[node name="Control" type="Control" parent="." unique_id=285405153]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="NameLabel" type="Label" parent="Control" unique_id=1989652780]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = 16.0
+offset_right = 122.5
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "NOME DE BOSS NOME DO BOSS"
+horizontal_alignment = 1
+
+[node name="BarBackground" type="ColorRect" parent="Control" unique_id=495861543]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_top = 44.0
+offset_right = 199.0
+offset_bottom = 84.0
+grow_horizontal = 2
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+
+[node name="BarFill" type="ColorRect" parent="Control" unique_id=1984237187]
+layout_mode = 0
+offset_left = -178.0
+offset_top = 44.0
+offset_right = -138.0
+offset_bottom = 84.0
+color = Color(1, 0, 0.011764706, 1)

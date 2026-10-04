@@ -124,6 +124,6 @@ damage = 20
 attack_range = 1.5
 detection_range = 40.0
 sprite_variants = Array[SpriteFrames]([SubResource("SpriteFrames_dj21o"), SubResource("SpriteFrames_6ui35"), SubResource("SpriteFrames_8e3ao")])
-drop_chance = 100.0
+drop_chance = 0.35
 possible_drops = Array[ExtResource("1_bf7jh")]([ExtResource("2_si4l1"), ExtResource("3_je7ty"), ExtResource("4_7tf5n")])
 metadata/_custom_type_script = "uid://b5326pt33876o"

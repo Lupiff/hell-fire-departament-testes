@@ -18,8 +18,8 @@ func start_dialogue(dialogue_data: DialogueData, player: Node3D) -> void:
 	lines = dialogue_data.lines
 	current_line = 0
 	player_ref = player
-	if player_ref:
-		player_ref.set_physics_process(false)
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE   # opcional, se quiser liberar o mouse durante o diálogo
 	_show_line()
 
 func _show_line() -> void:
@@ -65,7 +65,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_show_line()
 
 func _end_dialogue() -> void:
-	if player_ref:
-		player_ref.set_physics_process(true)
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	dialogue_finished.emit()
 	queue_free()

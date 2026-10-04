@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://duxdkjiwnqckw"]
+
+[ext_resource type="Texture2D" uid="uid://dmbuw35abwdib" path="res://assets/enemies/boss/boss_teste_fase1.png" id="1_0xdbs"]
+[ext_resource type="Script" uid="uid://nldk2spo0n8b" path="res://scenes/enemies/boss/boss.gd" id="1_ethqa"]
+[ext_resource type="Script" uid="uid://gugnb3xjmr6v" path="res://scripts/components/health_component.gd" id="2_ethqa"]
+[ext_resource type="Texture2D" uid="uid://xcdkanfk3qfv" path="res://assets/enemies/boss/boss_teste_fase1_fire.png" id="3_0nsqy"]
+[ext_resource type="Texture2D" uid="uid://dvfe731qkxe0" path="res://assets/enemies/boss/boss_teste_fase1_fire2.png" id="4_vweyc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mrjva"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ga66r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0xdbs")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0nsqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vweyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0nsqy")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=725881470]
+script = ExtResource("1_ethqa")
+max_health = 2500
+phase1_damage = 40
+detection_range = 40.0
+move_speed = 8.0
+prediction_lead = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1336863098]
+shape = SubResource("CapsuleShape3D_mrjva")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1370382968]
+transform = Transform3D(0.33507547, 0, 0, 0, 0.33507547, 0, 0, 0, 1, 0, -0.028928876, 0)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_ga66r")
+animation = &"idle"
+
+[node name="Health" type="Node" parent="." unique_id=84808265]
+script = ExtResource("2_ethqa")
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=730784542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4330337, 0.35625505, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=950494169]

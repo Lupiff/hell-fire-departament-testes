@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rxy2b2hschlc" path="res://assets/npc/Larabombeirapng.png" id="3_4lfgh"]
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=1970546538]
+process_mode = 3
 script = ExtResource("1_gohfl")
 
 [node name="Control" type="Control" parent="." unique_id=673466290]

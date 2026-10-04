@@ -2,6 +2,8 @@ extends Area3D
 class_name NPC
 
 @export var dialogue: DialogueData
+@export var weapon_reward: WeaponData
+var weapon_given := false	
 
 const DIALOGUE_UI_SCENE: PackedScene = preload("res://scenes/npc/DialogueUI.tscn")
 
@@ -29,6 +31,13 @@ func _start_dialogue() -> void:
 
 func _on_dialogue_finished() -> void:
 	is_talking = false
+
+	if weapon_reward and not weapon_given and player_ref:
+		var cam := player_ref.get_node_or_null("Head/Camera3D")
+		if cam and cam.has_method("unlock_weapon"):
+			cam.unlock_weapon(weapon_reward)
+			weapon_given = true
+
 	can_interact = false
 	await get_tree().create_timer(0.2).timeout
 	can_interact = true
