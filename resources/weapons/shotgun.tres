@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://le5ho1apc3f2"]
+
+[ext_resource type="AudioStream" uid="uid://xf5nrfsi8oq6" path="res://assets/weapons/shotgun/sound_fire.wav" id="1_ok5mh"]
+[ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_v4xi8"]
+[ext_resource type="Texture2D" uid="uid://0jcfgxrys8wp" path="res://assets/weapons/shotgun/idle.png" id="2_eea6l"]
+[ext_resource type="AudioStream" uid="uid://bj86v3so6dpjd" path="res://assets/weapons/shotgun/sound_pump.wav" id="2_l7w0u"]
+[ext_resource type="Texture2D" uid="uid://da7olyo12k6qv" path="res://assets/weapons/shotgun/idle_fire.png" id="3_ok5mh"]
+[ext_resource type="Texture2D" uid="uid://gt6v5fit6pci" path="res://assets/weapons/shotgun/pump.png" id="5_tnw6x"]
+[ext_resource type="Texture2D" uid="uid://c2mcasoopldty" path="res://assets/weapons/shotgun/pump_2.png" id="6_e0645"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rfis"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eea6l")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tnw6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e0645")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tnw6x")
+}],
+"loop": 0,
+"name": &"pump",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eea6l")
+}],
+"loop": 0,
+"name": &"reload",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ok5mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eea6l")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_v4xi8")
+name = "combat shotgun"
+sprite_frames = SubResource("SpriteFrames_4rfis")
+damage = 19
+fire_rate = 3.2
+ammo_max = 7
+fire_sound = ExtResource("1_ok5mh")
+reserve_ammo_max = 70
+ammo_type = "Doze"
+starts_unlocked = true
+pellet_count = 8
+spread_angle = 4.0
+pump_after_shot = true
+pump_sound = ExtResource("2_l7w0u")
+metadata/_custom_type_script = "uid://cvp8udpjj1jn2"

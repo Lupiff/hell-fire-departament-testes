@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://bi6vunvsph4a7" path="res://resources/weapons/mp40.tres" id="4_1jxqw"]
 [ext_resource type="Resource" uid="uid://vw6ve8x4lrm5" path="res://resources/weapons/teste.tres" id="5_1jxqw"]
 [ext_resource type="Resource" uid="uid://53iwpothbpu3" path="res://resources/weapons/axe.tres" id="6_qek5x"]
+[ext_resource type="Resource" uid="uid://le5ho1apc3f2" path="res://resources/weapons/shotgun.tres" id="7_h17s1"]
 [ext_resource type="Script" uid="uid://gugnb3xjmr6v" path="res://scripts/components/health_component.gd" id="7_health"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hs0m"]
@@ -45,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040122747, 0.043667555)
 fov = 100.0
 near = 0.03
 script = ExtResource("2_hqtel")
-weapons = Array[ExtResource("3_2hs0m")]([ExtResource("6_qek5x"), ExtResource("5_1jxqw"), ExtResource("4_1jxqw")])
+weapons = Array[ExtResource("3_2hs0m")]([ExtResource("6_qek5x"), ExtResource("5_1jxqw"), ExtResource("7_h17s1"), ExtResource("4_1jxqw")])
 
 [node name="WeaponSprite3D" type="AnimatedSprite3D" parent="Head/Camera3D" unique_id=1405761930]
 transform = Transform3D(0.0773657, 0, 0, 0, 0.0773657, 0, 0, 0, 0.1, 0, 0, -0.50651574)
@@ -129,6 +130,8 @@ theme_override_font_sizes/font_size = 16
 text = "VIDA 100 / 100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PumpAudio" type="AudioStreamPlayer" parent="Head/Camera3D" unique_id=380776009]
 
 [node name="Node" type="Node3D" parent="." unique_id=1742417196]
 visible = false

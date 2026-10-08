@@ -13,6 +13,7 @@ var current_ammo := 0
 var fire_cooldown := 0.0
 var reload_cooldown := 0.0
 var is_reloading := false
+var is_pumping := false
 
 var magazine_ammo: Array[int] = []
 var reserve_by_type: Dictionary = {}
@@ -26,6 +27,7 @@ var unlocked: Array[bool] = []
 @onready var player_health: HealthComponent = $"../../Health"
 @onready var health_bar_fill: ColorRect = $AmmoHud/HealthBarFill
 @onready var health_label: Label = $AmmoHud/HealthLabel
+@onready var pump_audio: AudioStreamPlayer = $PumpAudio
 
 var muzzle_flash_tween: Tween
 
@@ -76,6 +78,7 @@ func apply_fov(new_fov: float) -> void:
 	sprite.scale = base_weapon_scale * scale_factor
 
 func equip_weapon(index: int) -> void:
+	is_pumping = false
 	if index < 0 or index >= weapons.size():
 		return
 	if not unlocked[index]:
@@ -119,6 +122,9 @@ func switch_weapon(direction: int) -> void:
 func fire() -> void:
 	var data := weapons[current_index]
 
+	if is_pumping:
+		return
+
 	if not data.is_melee:
 		if is_reloading or current_ammo <= 0:
 			return
@@ -131,6 +137,9 @@ func fire() -> void:
 	if not data.is_melee:
 		_play_muzzle_flash()
 
+	if data.pump_after_shot:
+		is_pumping = true
+
 	if sprite.animation != &"shoot" or not sprite.is_playing():
 		_play_animation(&"shoot")
 	sprite.trigger_recoil()
@@ -138,8 +147,11 @@ func fire() -> void:
 	if data.is_melee:
 		_do_melee_delayed(data)
 	elif data.is_hitscan:
-		var hit_position := _do_hitscan(data)
-		_spawn_tracer(muzzle.global_position, hit_position)
+		if data.pellet_count > 1:
+			_do_shotgun(data)
+		else:
+			var hit_position := _do_hitscan(data)
+			_spawn_tracer(muzzle.global_position, hit_position)
 
 func _do_melee(data: WeaponData) -> void:
 	var from := global_position
@@ -157,8 +169,34 @@ func _do_melee_delayed(data: WeaponData) -> void:
 func _wait_for_frame(target_frame: int) -> void:
 	while sprite.animation == &"shoot" and sprite.frame < target_frame:
 		await sprite.frame_changed
+		
+		
+func _do_shotgun(data: WeaponData) -> void:
+	var space_state := get_world_3d().direct_space_state
+	var spread_rad := deg_to_rad(data.spread_angle)
+	var forward := -global_transform.basis.z
+
+	for i in data.pellet_count:
+		var dir := forward
+		dir = dir.rotated(global_transform.basis.y, randf_range(-spread_rad, spread_rad))
+		dir = dir.rotated(global_transform.basis.x, randf_range(-spread_rad, spread_rad))
+
+		var from := global_position
+		var to := from + dir * HITSCAN_RANGE
+		var query := PhysicsRayQueryParameters3D.create(from, to)
+		query.exclude = [get_parent().get_parent()]
+		var result := space_state.intersect_ray(query)
+
+		var end_point := to
+		if result:
+			end_point = result.position
+			if result.collider.has_method("take_damage"):
+				result.collider.take_damage(data.damage)
+
+		_spawn_tracer(muzzle.global_position, end_point)
 
 func reload() -> void:
+	if is_pumping: return
 	if weapons.is_empty() or is_reloading:
 		return
 	var data := weapons[current_index]
@@ -230,6 +268,11 @@ func _play_fire_sound(data: WeaponData) -> void:
 	if data.fire_sound:
 		fire_audio.stream = data.fire_sound
 		fire_audio.play()
+		
+func _play_pump_sound(data: WeaponData) -> void:
+	if data.pump_sound:
+		pump_audio.stream = data.pump_sound
+		pump_audio.play()
 
 func _play_muzzle_flash() -> void:
 	if muzzle_flash_tween:
@@ -262,10 +305,23 @@ func _spawn_tracer(from: Vector3, to: Vector3) -> void:
 func _on_animation_finished() -> void:
 	if sprite.animation == &"shoot":
 		var data := weapons[current_index]
-		if data.is_automatic and Input.is_action_pressed("shoot") and current_ammo > 0:
+		if data.pump_after_shot:
+			_start_pump()
+		elif data.is_automatic and Input.is_action_pressed("shoot") and current_ammo > 0:
 			_play_animation(&"shoot")
 		else:
 			_play_animation(&"idle")
+	elif sprite.animation == &"pump":
+		is_pumping = false
+		_play_animation(&"idle")
+
+func _start_pump() -> void:
+	_play_pump_sound(weapons[current_index])
+	if sprite.sprite_frames and sprite.sprite_frames.has_animation(&"pump"):
+		sprite.play(&"pump")
+	else:
+		is_pumping = false
+		_play_animation(&"idle")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:

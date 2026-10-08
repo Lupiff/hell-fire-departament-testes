@@ -8,6 +8,8 @@ class_name Boss
 @export var detection_range: float = 20.0
 @export var move_speed: float = 4.0
 @export var close_range: float = 5.0
+@export var windup_time: float = 0.5      # tempo total de "mirar" antes do tiro resolver
+@export var lock_ratio: float = 0.6       # 0.6 = rastreia os primeiros 60% do windup,
 
 const SHOOT_DAMAGE_FRAME := 1
 const GRAVITY := 20.0
@@ -21,6 +23,8 @@ var player: Node3D
 @onready var sprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var muzzle: Marker3D = $Muzzle
 @onready var ray_cast: RayCast3D = $RayCast3D
+
+
 
 func _ready() -> void:
 	health_component.set_max_health(max_health)
@@ -91,16 +95,43 @@ func _phase1_behavior(_delta: float) -> void:
 
 func _fire_pistol() -> void:
 	is_firing = true
-	sprite.play(&"shoot")
 
-	var aim_from := muzzle.global_position
+	# segura na pose de mira (frame 0) durante o windup
+	sprite.play(&"shoot")
+	sprite.pause()
+	sprite.frame = 0
+
+	var track_time := windup_time * lock_ratio
+	var lock_duration := windup_time - track_time
 	var aim_target := player.global_position
 
-	await _wait_for_frame(SHOOT_DAMAGE_FRAME)
+	# Fase 1: rastreia o player
+	var elapsed := 0.0
+	while elapsed < track_time:
+		if not is_inside_tree():
+			return
+		aim_target = player.global_position
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+
+	# Fase 2: mira travada (janela de fuga)
+	var lock_elapsed := 0.0
+	while lock_elapsed < lock_duration:
+		if not is_inside_tree():
+			return
+		await get_tree().process_frame
+		lock_elapsed += get_process_delta_time()
+
+	if not is_inside_tree():
+		return
+
+	# TIRO: troca pro frame do disparo e causa o dano no mesmo instante
+	sprite.frame = SHOOT_DAMAGE_FRAME
+	sprite.play(&"shoot")
 
 	if current_phase == 1:
 		var space_state := get_world_3d().direct_space_state
-		var query := PhysicsRayQueryParameters3D.create(aim_from, aim_target)
+		var query := PhysicsRayQueryParameters3D.create(muzzle.global_position, aim_target)
 		query.exclude = [self]
 		var result := space_state.intersect_ray(query)
 		if result and result.collider.has_method("take_damage"):

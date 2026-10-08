@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PickupData" format=3 uid="uid://dapham8p0autc"]
+
+[ext_resource type="Texture2D" uid="uid://dmv10kapac0v5" path="res://assets/components/shotgun_ammo.png" id="1_bkbjc"]
+[ext_resource type="Script" uid="uid://dcoiwlwqv15hj" path="res://scripts/components/pickup_data.gd" id="1_fgxbw"]
+
+[resource]
+script = ExtResource("1_fgxbw")
+type = "ammo"
+amount = 24
+icon = ExtResource("1_bkbjc")
+glow_color = Color(0.92941177, 0.78039217, 0.31764707, 1)
+ammo_type = "Doze"
+metadata/_custom_type_script = "uid://dcoiwlwqv15hj"

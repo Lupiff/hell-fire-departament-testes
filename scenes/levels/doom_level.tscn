@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://q5f18hpdk7iw" path="res://assets/weapons/mp40/icon.webp" id="19_e1ua7"]
 [ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="20_ottwj"]
 [ext_resource type="AudioStream" uid="uid://inpxsbi6cv3v" path="res://assets/audio/music/fase_teste_doom/musica_maneira_trila_sonora.mp3" id="21_kivk7"]
+[ext_resource type="Resource" uid="uid://dapham8p0autc" path="res://scripts/components/ammo/Doze.tres" id="22_8475m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1i38"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -546,6 +547,7 @@ weapon_reward = ExtResource("8_yyw3y")
 
 [node name="CharacterBody3D2" parent="." unique_id=725881470 instance=ExtResource("8_8qvql")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -114, -0.1141361, -8.36908)
+lock_ratio = 0.78
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=961465716]
 
@@ -892,5 +894,17 @@ process_mode = 3
 stream = ExtResource("21_kivk7")
 volume_db = -6.36
 autoplay = true
+
+[node name="Area3D12" parent="." unique_id=180235110 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.75435, -0.7995182, -0.004673481)
+data = ExtResource("22_8475m")
+
+[node name="Area3D13" parent="." unique_id=482388105 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.75435, -0.7995182, -5.340483)
+data = ExtResource("22_8475m")
+
+[node name="Area3D14" parent="." unique_id=1863405575 instance=ExtResource("14_shn30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.682194, -0.7995182, -2.47811)
+data = ExtResource("22_8475m")
 
 [editable path="Sketchfab_Scene"]
