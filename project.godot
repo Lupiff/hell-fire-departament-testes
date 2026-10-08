@@ -15,6 +15,10 @@ run/main_scene="uid://b186cmic8fv5g"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicManager="*uid://m4gsanwyb1dv"
+
 [input]
 
 forward={

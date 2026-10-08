@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://c5brafc1n8j6i"]
 
 [ext_resource type="Script" uid="uid://dxwiy3ft6xwok" path="res://game_over.gd" id="1_0glx4"]
+[ext_resource type="AudioStream" uid="uid://calpuw4dnd5yh" path="res://assets/audio/music/death_cena/teste2pqnaguentomaisaaaaaa.ogg" id="2_6cn7u"]
+[ext_resource type="AudioStream" uid="uid://bl55cuewnxfda" path="res://assets/audio/music/death_cena/efeitosonoromortec.mp3" id="3_mi55s"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1929480170]
 script = ExtResource("1_0glx4")
+music = ExtResource("2_6cn7u")
+death_sound = ExtResource("3_mi55s")
+music_delay = 1.02
 
 [node name="Control" type="Control" parent="." unique_id=18412433]
 layout_mode = 3

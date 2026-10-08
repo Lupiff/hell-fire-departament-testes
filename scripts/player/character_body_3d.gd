@@ -24,7 +24,7 @@ var was_on_floor := true
 @onready var camera: Camera3D = $Head/Camera3D
 @onready var health_component: HealthComponent = $Health
 
-@onready var music_player: AudioStreamPlayer = get_tree().current_scene.get_node("MusicPlayer")
+# @onready var music_player: AudioStreamPlayer = get_tree().current_scene.get_node("MusicPlayer")  comentado pq n precisa, masssss vamos deixar, vai q voltamos a ter
 
 var gravity = 20
 
@@ -120,8 +120,8 @@ const GAME_OVER_SCENE := preload("res://scenes/player/gameover.tscn")
 func _die() -> void:
 	is_dead = true
 	print("Player morreu!")
-
-	music_player.stop()   # <- ADICIONA ESSA LINHA
+	
+	# music_player.stop()   # apagado junto da variavel la em cima
 
 	var game_over := GAME_OVER_SCENE.instantiate()
 	get_tree().current_scene.add_child(game_over)

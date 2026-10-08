@@ -7,6 +7,7 @@ class_name BossArenaTrigger
 @export var boss: Node3D
 @export var boss_health_bar_scene: PackedScene
 @export var boss_display_name: String = "BOSS"
+@export var boss_music: AudioStream
 
 var triggered := false
 
@@ -17,6 +18,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if triggered or not body.is_in_group("player"):
 		return
 	triggered = true
+	MusicManager.play(boss_music)
 	_spawn_enemies()
 	_show_boss_health_bar()
 

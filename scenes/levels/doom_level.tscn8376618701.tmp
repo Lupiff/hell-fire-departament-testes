@@ -22,7 +22,6 @@
 [ext_resource type="Resource" uid="uid://g6vmmnxy8rlw" path="res://scripts/components/ammo/sten_pistol_ammo.tres" id="20_ottwj"]
 [ext_resource type="AudioStream" uid="uid://inpxsbi6cv3v" path="res://assets/audio/music/fase_teste_doom/musica_maneira_trila_sonora.mp3" id="21_kivk7"]
 [ext_resource type="Resource" uid="uid://dapham8p0autc" path="res://scripts/components/ammo/Doze.tres" id="22_8475m"]
-[ext_resource type="Script" uid="uid://bd3rox03k428h" path="res://scenes/levels/level_doom_music.gd" id="23_m77kx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1i38"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -540,6 +539,7 @@ icon = ExtResource("4_a1i38")
 
 [node name="CharacterBody3D" parent="." unique_id=1368982742 instance=ExtResource("2_5mmt4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.047883, 7.6548367, -2.5668335)
+HEALTH = null
 
 [node name="NPC" parent="." unique_id=575067146 instance=ExtResource("6_f46uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.443179, 6.591706, 1.75177)
@@ -890,6 +890,12 @@ data = ExtResource("20_ottwj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.184701, 5.200481, -2.165015)
 data = ExtResource("20_ottwj")
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1836035698]
+process_mode = 3
+stream = ExtResource("21_kivk7")
+volume_db = -6.36
+autoplay = true
+
 [node name="Area3D12" parent="." unique_id=180235110 instance=ExtResource("14_shn30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.75435, -0.7995182, -0.004673481)
 data = ExtResource("22_8475m")
@@ -901,9 +907,5 @@ data = ExtResource("22_8475m")
 [node name="Area3D14" parent="." unique_id=1863405575 instance=ExtResource("14_shn30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.682194, -0.7995182, -2.47811)
 data = ExtResource("22_8475m")
-
-[node name="LevelMusic" type="Node" parent="." unique_id=155283702]
-script = ExtResource("23_m77kx")
-level_music = ExtResource("21_kivk7")
 
 [editable path="Sketchfab_Scene"]

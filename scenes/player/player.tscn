@@ -30,6 +30,7 @@ animations = [{
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1368982742 groups=["player"]]
 script = ExtResource("1_i3pqv")
+HEALTH = null
 
 [node name="Health" type="Node" parent="." unique_id=1828868509]
 script = ExtResource("7_health")
