@@ -28,6 +28,7 @@ var unlocked: Array[bool] = []
 @onready var health_bar_fill: ColorRect = $AmmoHud/HealthBarFill
 @onready var health_label: Label = $AmmoHud/HealthLabel
 @onready var pump_audio: AudioStreamPlayer = $PumpAudio
+@onready var reload_audio: AudioStreamPlayer = $ReloadAudio
 
 var muzzle_flash_tween: Tween
 
@@ -214,8 +215,8 @@ func reload() -> void:
 	
 func _play_reload_sound(data: WeaponData) -> void:
 	if data.reload_sound:
-		fire_audio.stream = data.reload_sound
-		fire_audio.play()
+		reload_audio.stream = data.reload_sound
+		reload_audio.play()
 
 func _finish_reload() -> void:
 	var data := weapons[current_index]

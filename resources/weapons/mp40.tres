@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cvp8udpjj1jn2" path="res://scripts/weapons/weapon_data.gd" id="1_etenb"]
 [ext_resource type="Texture2D" uid="uid://djbqbqdyk2pp1" path="res://GLB format/maozinha.png" id="2_dynsv"]
+[ext_resource type="AudioStream" uid="uid://c4i51jr8ee14x" path="res://assets/weapons/mp40/reload_som.wav" id="2_otnaa"]
 [ext_resource type="Texture2D" uid="uid://bwuvedl8notwv" path="res://GLB format/maozinha_tiro.png" id="3_4ubgt"]
+[ext_resource type="Texture2D" uid="uid://bdasoo1afi2gs" path="res://assets/weapons/mp40/reload.png" id="4_b8u4t"]
 [ext_resource type="AudioStream" uid="uid://bvwqvhks2lyus" path="res://assets/audio/mp40_fire.mp3" id="4_fire"]
+[ext_resource type="Texture2D" uid="uid://cn8wttofy2ydj" path="res://assets/weapons/mp40/reload1.png" id="5_otnaa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ubgt"]
 atlas = ExtResource("2_dynsv")
@@ -25,6 +28,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_b8u4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_otnaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b8u4t")
+}],
+"loop": 0,
+"name": &"reload",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r1sxk")
 }],
 "loop": 0,
@@ -39,7 +56,9 @@ sprite_frames = SubResource("SpriteFrames_r1sxk")
 damage = 20
 fire_rate = 10.0
 ammo_max = 30
+reload_time = 0.6
 fire_sound = ExtResource("4_fire")
+reload_sound = ExtResource("2_otnaa")
 is_automatic = true
 reserve_ammo_max = 120
 ammo_type = "MP-40"
